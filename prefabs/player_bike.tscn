@@ -2,41 +2,30 @@
 
 [ext_resource type="Script" path="res://PlayerBike.gd" id="1_offvd"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_aqoiy"]
-radius = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_vfbwd"]
+size = Vector3(1, 1, 2.66559)
 
-[node name="PlayerBike" type="VehicleBody3D"]
+[node name="PlayerBike" type="RigidBody3D"]
 axis_lock_linear_y = true
 mass = 5.0
 script = ExtResource("1_offvd")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.0563049)
+shape = SubResource("BoxShape3D_vfbwd")
+disabled = true
+
 [node name="Bike" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.693797, 0)
 size = Vector3(0.5, 1, 2)
 
 [node name="Camera3D" type="Camera3D" parent="Bike"]
 transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, -3.04919e-23, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 2.10296e-12, 11.7664, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("SphereShape3D_aqoiy")
-
-[node name="front" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.716)
-use_as_steering = true
-wheel_friction_slip = 1.0
-suspension_travel = 0.1
-
-[node name="FrontWheel" type="CSGCylinder3D" parent="front"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="FrontWheel" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, 0.716)
 height = 0.697182
 
-[node name="bach" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.855)
-use_as_traction = true
-wheel_friction_slip = 0.7
-suspension_travel = 0.1
-
-[node name="RearWheel" type="CSGCylinder3D" parent="bach"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="RearWheel" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.5, -0.855)
 height = 0.697182
