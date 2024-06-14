@@ -14,3 +14,4 @@ config/name="CDawgJam"
 run/main_scene="res://scenes/prototype_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
