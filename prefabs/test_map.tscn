@@ -7,7 +7,7 @@
 albedo_texture = ExtResource("2_5eqbn")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l2cs5"]
-size = Vector2(50, 50)
+size = Vector2(50, 200)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ya3ho"]
 
@@ -15,7 +15,6 @@ size = Vector2(50, 50)
 
 [node name="PlayerBike" parent="." instance=ExtResource("1_xrk30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25811, 0)
-bike_speed = 1500.0
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ujhgw")
@@ -25,3 +24,7 @@ mesh = SubResource("PlaneMesh_l2cs5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGMesh3D/StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_ya3ho")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.332307, 0.3856, -0.860747, 0.138878, 0.922666, 0.359723, 0.932891, -1.39012e-08, -0.36016, 0, 4.36817, 0)
+shadow_enabled = true
