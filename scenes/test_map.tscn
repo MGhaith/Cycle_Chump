@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bpnlumod7ymav"]
 
-[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/player_bike.tscn" id="1_xrk30"]
-[ext_resource type="Texture2D" uid="uid://fro5w0q1mglk" path="res://icon.svg" id="2_5eqbn"]
+[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="1_iuiyc"]
+[ext_resource type="Texture2D" uid="uid://fro5w0q1mglk" path="res://icon.svg" id="2_wjr0j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujhgw"]
-albedo_texture = ExtResource("2_5eqbn")
+albedo_texture = ExtResource("2_wjr0j")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_l2cs5"]
 size = Vector2(50, 50)
@@ -13,9 +13,10 @@ size = Vector2(50, 50)
 
 [node name="TestMap" type="Node3D"]
 
-[node name="PlayerBike" parent="." instance=ExtResource("1_xrk30")]
+[node name="PlayerBike" parent="." instance=ExtResource("1_iuiyc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25811, 0)
-bike_speed = 1500.0
+bike_normal_speed = 20.0
+bike_fast_speed = 25.0
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ujhgw")
