@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpnlumod7ymav"]
+
+[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/player_bike.tscn" id="1_xrk30"]
+[ext_resource type="Texture2D" uid="uid://fro5w0q1mglk" path="res://icon.svg" id="2_5eqbn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujhgw"]
+albedo_texture = ExtResource("2_5eqbn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l2cs5"]
+size = Vector2(50, 50)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ya3ho"]
+
+[node name="TestMap" type="Node3D"]
+
+[node name="PlayerBike" parent="." instance=ExtResource("1_xrk30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25811, 0)
+bike_speed = 100.0
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ujhgw")
+mesh = SubResource("PlaneMesh_l2cs5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGMesh3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGMesh3D/StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_ya3ho")
