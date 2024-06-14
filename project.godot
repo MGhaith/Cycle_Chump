@@ -13,3 +13,12 @@ config_version=5
 config/name="CDawgJam"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=200
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
