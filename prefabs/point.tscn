@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cor10csgxhna1"]
+[gd_scene load_steps=7 format=3 uid="uid://b2qkiuvr8y48l"]
 
 [ext_resource type="Texture2D" uid="uid://c731x230a4qwb" path="res://assets/3d/cone/Textures/colormap.png" id="1_o6wql"]
 [ext_resource type="Script" path="res://scripts/points_script.gd" id="1_sxban"]

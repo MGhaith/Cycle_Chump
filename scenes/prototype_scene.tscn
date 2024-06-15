@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=11 format=3 uid="uid://bnx1q24o123vw"]
 
-
-[ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
-[ext_resource type="PackedScene" uid="uid://cor10csgxhna1" path="res://prefabs/point.tscn" id="2_qy2bi"]
+[ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
+[ext_resource type="PackedScene" uid="uid://b2qkiuvr8y48l" path="res://prefabs/point.tscn" id="2_qy2bi"]
 [ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="3_4wsir"]
-[ext_resource type="PackedScene" uid="uid://b4oakddva3l7m" path="res://prefabs/components/banana.tscn" id="3_6g6ho"]
-[ext_resource type="Script" path="res://scripts/camera_world.gd" id="5_v1rgs"]
+[ext_resource type="PackedScene" uid="uid://dx8aytrqxm76n" path="res://prefabs/turn_point.tscn" id="3_qgs88"]
+[ext_resource type="PackedScene" uid="uid://c5le3ve5kw50j" path="res://prefabs/car_police_1.tscn" id="4_u5hvt"]
+[ext_resource type="PackedScene" uid="uid://dn6pttqt6ocdt" path="res://prefabs/car_taxi_5.tscn" id="5_6arsf"]
+[ext_resource type="PackedScene" uid="uid://4hc26mod4xjf" path="res://prefabs/car_hatchback_2.tscn" id="6_qvyiw"]
+[ext_resource type="PackedScene" uid="uid://bnhepdhican81" path="res://prefabs/car_stationwagon_4.tscn" id="7_speok"]
+[ext_resource type="PackedScene" uid="uid://j701dsjbkcbp" path="res://prefabs/car_sedan_3.tscn" id="8_brocc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -627,21 +630,27 @@ visible = false
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment/lights"]
 transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 0, 1.31225, 0)
 
-[node name="bananas" type="Node" parent="environment"]
-
-[node name="Banana" parent="environment/bananas" instance=ExtResource("3_6g6ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -5)
-
 [node name="cars" type="Node" parent="."]
 
-[node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("3_4wsir")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.08165e-12, 0.55, -5)
-camara_world = NodePath("../Camera3D")
-steer_speed = 15.0
-bike_normal_speed = 28.0
-bike_max_speed = 38.0
+[node name="car_police_1" parent="cars" instance=ExtResource("4_u5hvt")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -12, 0, 7)
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.07478e-12, 15, 2.08165e-12)
-script = ExtResource("5_v1rgs")
-player = NodePath("../PlayerBike")
+[node name="car_taxi2" parent="cars" instance=ExtResource("5_6arsf")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 0, -5)
+
+[node name="car_hatchback2" parent="cars" instance=ExtResource("6_qvyiw")]
+transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -9, 0, -21)
+
+[node name="car_stationwagon2" parent="cars" instance=ExtResource("7_speok")]
+transform = Transform3D(-3, 0, 4.52987e-07, 0, 3, 0, -4.52987e-07, 0, -3, 25, 0, -20)
+
+[node name="car_sedan2" parent="cars" instance=ExtResource("8_brocc")]
+transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
+
+[node name="PlayerBike" parent="." groups=["player"] instance=ExtResource("3_4wsir")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -26.4009, 0.55, 7.35833)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 40, 0)
+visible = false
+current = true
