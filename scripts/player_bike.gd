@@ -11,13 +11,14 @@ extends VehicleBody3D
 
 @export_category("Stamina System")
 @export var current_stamina = 100.0
-@export var max_stamina_remover = 5.0
+
+@export var stamina_gain_per_banana = 10
+
 ## This max stamina remover helps when the player is using the bike full speed
+@export var max_stamina_remover = 5.0
 
-@export var min_stamina_remover = 2.0
 ## This min stamina remover helps when the player is using the bike at normal speed
-
-
+@export var min_stamina_remover = 2.0
 
 @export_category("Bike Speeds Mesure In Kilometres")
 @export var bike_normal_speed = 20.0
@@ -93,3 +94,23 @@ func _integrate_forces(state):
 	
 
 
+func _banana_area_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.is_in_group("banana"):
+		print("Gain stamina")
+		var banana_children = area.get_children()
+		
+		# Play the animations "picked" from the banana before queue_freeing
+		for child in banana_children:
+			if child is AnimationPlayer:
+				var banana_animations : AnimationPlayer = child
+				banana_animations.play("picked")
+		
+		var preview_stamina = current_stamina + stamina_gain_per_banana
+		
+		if preview_stamina > 100:
+			current_stamina = 100
+		else:
+			current_stamina + stamina_gain_per_banana
+		
+		await get_tree().create_timer(1).timeout
+		area.queue_free()

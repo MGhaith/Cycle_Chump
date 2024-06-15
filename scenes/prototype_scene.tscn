@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=6 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
-[ext_resource type="PackedScene" uid="uid://b2qkiuvr8y48l" path="res://prefabs/point.tscn" id="2_qy2bi"]
+[ext_resource type="PackedScene" path="res://prefabs/point.tscn" id="2_qy2bi"]
 [ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="3_4wsir"]
+[ext_resource type="PackedScene" uid="uid://b4oakddva3l7m" path="res://prefabs/components/banana.tscn" id="3_qusq7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -178,6 +179,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment/lights"]
 transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 0, 1.31225, 0)
+
+[node name="bananas" type="Node" parent="environment"]
+
+[node name="Banana" parent="environment/bananas" instance=ExtResource("3_qusq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.78, -5)
 
 [node name="cars" type="Node" parent="."]
 
