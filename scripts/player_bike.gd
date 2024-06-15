@@ -37,7 +37,7 @@ func _stamina_timer():
 	else:
 		current_stamina -= min_stamina_remover
 
-func _process(delta):
+func _process(_delta):
 	if current_stamina == 0:
 		engine_force = 0
 

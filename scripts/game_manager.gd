@@ -6,8 +6,9 @@ class_name GameManager
 var player_score: int
 
 func _ready():
-	for point in points_node.get_children():
-		point.game_manager = self
+	if points_node != null:
+		for point in points_node.get_children():
+			point.game_manager = self
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print_debug("Game Manager Ready")
