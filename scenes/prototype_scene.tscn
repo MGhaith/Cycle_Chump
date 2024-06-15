@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
-[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="2_5cps8"]
+[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="2_1i8pp"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_emp8m"]
 
@@ -94,5 +94,5 @@ transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
 visible = false
 
-[node name="PlayerBike" parent="." instance=ExtResource("2_5cps8")]
-transform = Transform3D(0.00598635, 0, -0.499964, 0, 0.5, 0, 0.499964, 0, 0.00598635, -0.607806, 0.403366, 6.95134)
+[node name="PlayerBike" parent="." instance=ExtResource("2_1i8pp")]
+transform = Transform3D(-0.119565, 0, -0.992826, 0, 1, 0, 0.992826, 0, -0.119565, 0.160516, 0.682896, 7.0476)
