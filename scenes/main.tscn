@@ -9,7 +9,7 @@ points_node = NodePath("GameScene/environment/points")
 
 [node name="GameScene" parent="." instance=ExtResource("2_xcno3")]
 
-[node name="PlayerBike" parent="GameScene" index="3"]
-transform = Transform3D(-0.119565, 0, -0.992826, 0, 1, 0, 0.992826, 0, -0.119565, 0.160516, 0.682896, -4.87438)
+[node name="PlayerBike" parent="GameScene" index="2"]
+transform = Transform3D(-0.00294967, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00294967, -27.8395, 0.682896, 7.12562)
 
 [editable path="GameScene"]

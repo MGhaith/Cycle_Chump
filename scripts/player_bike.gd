@@ -42,7 +42,6 @@ func _process(_delta):
 		engine_force = 0
 
 func _physics_process(delta):
-	print("Current Stamina", current_stamina)
 	# gets the input axis (positive, negative)
 	var input_dir = Input.get_axis("right", "left")
 	
@@ -54,7 +53,6 @@ func _physics_process(delta):
 	
 	
 	engine_force = lerp(engine_force, bike_current_speed, delta )
-	print(engine_force)
 	AnimationController.speed_scale = engine_force / bike_current_speed + delta
 
 	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)

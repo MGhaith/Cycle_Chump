@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx8aytrqxm76n"]
+
+[ext_resource type="Script" path="res://scripts/turn_point_script.gd" id="1_d8fy8"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q8hyq"]
+radius = 0.01
+
+[sub_resource type="SphereMesh" id="SphereMesh_gihsy"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvcxn"]
+albedo_color = Color(0.947678, 0.160653, 9.62615e-07, 1)
+
+[node name="TurnPoint" type="Area3D" groups=["turn"]]
+script = ExtResource("1_d8fy8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_q8hyq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_gihsy")
+surface_material_override/0 = SubResource("StandardMaterial3D_bvcxn")

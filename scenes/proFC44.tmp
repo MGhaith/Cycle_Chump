@@ -1,14 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=7 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
 [ext_resource type="PackedScene" uid="uid://b2qkiuvr8y48l" path="res://prefabs/point.tscn" id="2_qy2bi"]
 [ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="3_4wsir"]
+[ext_resource type="PackedScene" uid="uid://c5le3ve5kw50j" path="res://prefabs/car.tscn" id="3_7ayve"]
 [ext_resource type="PackedScene" uid="uid://dx8aytrqxm76n" path="res://prefabs/turn_point.tscn" id="3_qgs88"]
-[ext_resource type="PackedScene" uid="uid://c5le3ve5kw50j" path="res://prefabs/car_police_1.tscn" id="4_u5hvt"]
-[ext_resource type="PackedScene" uid="uid://dn6pttqt6ocdt" path="res://prefabs/car_taxi_5.tscn" id="5_6arsf"]
-[ext_resource type="PackedScene" uid="uid://4hc26mod4xjf" path="res://prefabs/car_hatchback_2.tscn" id="6_qvyiw"]
-[ext_resource type="PackedScene" uid="uid://bnhepdhican81" path="res://prefabs/car_stationwagon_4.tscn" id="7_speok"]
-[ext_resource type="PackedScene" uid="uid://j701dsjbkcbp" path="res://prefabs/car_sedan_3.tscn" id="8_brocc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -106,15 +102,13 @@ node_up = NodePath("../3")
 node_down = NodePath("../40")
 node_right = NodePath("../1")
 
-[node name="3" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="3" parent="environment/turns" node_paths=PackedStringArray("node_left") instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.1, 1)
-node_down = NodePath("../2")
 node_left = NodePath("../4")
 
-[node name="4" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="4" parent="environment/turns" node_paths=PackedStringArray("node_up") instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.1, 1)
 node_up = NodePath("../5")
-node_right = NodePath("../3")
 
 [node name="5" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right") instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.1, -5)
@@ -128,373 +122,201 @@ node_up = NodePath("../7")
 node_down = NodePath("../5")
 node_right = NodePath("../67")
 
-[node name="7" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="7" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.1, -25)
-node_down = NodePath("../6")
-node_right = NodePath("../8")
 
-[node name="8" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="8" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.1, -25)
-node_down = NodePath("../70")
-node_right = NodePath("../9")
-node_left = NodePath("../7")
 
-[node name="9" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="9" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.1, -25)
-node_down = NodePath("../69")
-node_right = NodePath("../10")
-node_left = NodePath("../8")
 
-[node name="10" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="10" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.1, -25)
-node_down = NodePath("../11")
-node_left = NodePath("../9")
 
-[node name="11" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="11" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.1, -17)
-node_up = NodePath("../10")
-node_down = NodePath("../64")
-node_right = NodePath("../12")
 
-[node name="12" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="12" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.1, -17)
-node_up = NodePath("../13")
-node_down = NodePath("../63")
-node_left = NodePath("../11")
 
-[node name="13" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="13" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.1, -25)
-node_down = NodePath("../12")
-node_right = NodePath("../14")
 
-[node name="14" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="14" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, -25)
-node_down = NodePath("../15")
-node_right = NodePath("../71")
-node_left = NodePath("../13")
 
-[node name="15" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="15" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, -19)
-node_up = NodePath("../14")
-node_right = NodePath("../74")
-node_left = NodePath("../16")
 
-[node name="74" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down") instance=ExtResource("3_qgs88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0.1, -19)
-node_up = NodePath("../14")
-node_down = NodePath("../20")
-
-[node name="16" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="16" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.1, -19)
-node_down = NodePath("../17")
-node_right = NodePath("../15")
 
-[node name="17" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="17" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.1, -5)
-node_up = NodePath("../16")
-node_down = NodePath("../31")
-node_right = NodePath("../18")
-node_left = NodePath("../63")
 
-[node name="18" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="18" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, -5)
-node_up = NodePath("../19")
-node_down = NodePath("../62")
-node_left = NodePath("../17")
 
-[node name="19" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="19" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, -13)
-node_down = NodePath("../18")
-node_right = NodePath("../20")
 
-[node name="20" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="20" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0.1, -13)
-node_up = NodePath("../74")
-node_right = NodePath("../21")
-node_left = NodePath("../19")
 
-[node name="21" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="21" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0.1, -13)
-node_up = NodePath("../71")
-node_down = NodePath("../22")
-node_left = NodePath("../20")
 
-[node name="22" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="22" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0.1, -7)
-node_up = NodePath("../21")
-node_left = NodePath("../23")
 
-[node name="23" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="23" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.1, -7)
-node_down = NodePath("../24")
-node_right = NodePath("../22")
 
-[node name="24" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="24" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.1, 1)
-node_up = NodePath("../23")
-node_down = NodePath("../25")
-node_left = NodePath("../62")
 
-[node name="25" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="25" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0.1, 7)
-node_up = NodePath("../24")
-node_down = NodePath("../61")
-node_left = NodePath("../26")
 
-[node name="26" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="26" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, 7)
-node_down = NodePath("../27")
-node_right = NodePath("../25")
-node_left = NodePath("../31")
 
-[node name="27" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="27" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.1, 13)
-node_up = NodePath("../26")
-node_left = NodePath("../28")
 
-[node name="28" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="28" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.1, 13)
-node_down = NodePath("../60")
-node_right = NodePath("../27")
-node_left = NodePath("../29")
 
-[node name="29" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="29" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.1, 13)
-node_up = NodePath("../30")
-node_right = NodePath("../28")
 
-[node name="30" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="30" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.1, 7)
-node_down = NodePath("../29")
-node_right = NodePath("../31")
-node_left = NodePath("../32")
 
-[node name="31" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="31" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.1, 7)
-node_up = NodePath("../17")
-node_right = NodePath("../26")
-node_left = NodePath("../30")
 
-[node name="32" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="32" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.1, 7)
-node_down = NodePath("../33")
-node_right = NodePath("../30")
-node_left = NodePath("../72")
 
-[node name="33" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="33" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.1, 15)
-node_up = NodePath("../32")
-node_left = NodePath("../34")
 
-[node name="34" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="34" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.1, 15)
-node_down = NodePath("../35")
-node_right = NodePath("../33")
 
-[node name="35" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="35" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.1, 19)
-node_up = NodePath("../34")
-node_down = NodePath("../49")
-node_right = NodePath("../60")
-node_left = NodePath("../36")
 
-[node name="36" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="36" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 19)
-node_up = NodePath("../1")
-node_right = NodePath("../35")
-node_left = NodePath("../37")
 
-[node name="37" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="37" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.1, 19)
-node_down = NodePath("../43")
-node_right = NodePath("../36")
-node_left = NodePath("../38")
 
-[node name="38" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="38" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.1, 19)
-node_up = NodePath("../39")
-node_down = NodePath("../44")
-node_right = NodePath("../37")
 
-[node name="39" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="39" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.1, 13)
-node_down = NodePath("../38")
-node_right = NodePath("../40")
 
-[node name="40" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="40" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0.1, 13)
-node_up = NodePath("../2")
-node_left = NodePath("../39")
 
-[node name="41" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="41" parent="environment/turns" node_paths=PackedStringArray("node_left") instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, -5)
-node_down = NodePath("../1")
 node_left = NodePath("../5")
 
-[node name="42" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="42" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 25)
-node_down = NodePath("../45")
-node_left = NodePath("../43")
 
-[node name="43" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="43" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.1, 25)
-node_up = NodePath("../37")
-node_right = NodePath("../42")
 
-[node name="44" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="44" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.1, 31)
-node_up = NodePath("../38")
-node_right = NodePath("../45")
 
-[node name="45" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="45" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 31)
-node_up = NodePath("../42")
-node_right = NodePath("../46")
-node_left = NodePath("../44")
 
-[node name="46" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="46" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.1, 31)
-node_up = NodePath("../49")
-node_right = NodePath("../47")
-node_left = NodePath("../45")
 
-[node name="47" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="47" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.1, 31)
-node_up = NodePath("../48")
-node_left = NodePath("../46")
 
-[node name="48" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="48" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.1, 25)
-node_down = NodePath("../47")
-node_right = NodePath("../50")
-node_left = NodePath("../49")
 
-[node name="49" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="49" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.1, 25)
-node_up = NodePath("../35")
-node_down = NodePath("../46")
-node_right = NodePath("../48")
 
-[node name="50" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="50" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.1, 25)
-node_down = NodePath("../51")
-node_left = NodePath("../48")
 
-[node name="51" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="51" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.1, 31)
-node_up = NodePath("../50")
-node_right = NodePath("../52")
 
-[node name="52" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="52" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.1, 31)
-node_up = NodePath("../60")
-node_right = NodePath("../53")
-node_left = NodePath("../51")
 
-[node name="53" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="53" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 31)
-node_up = NodePath("../56")
-node_right = NodePath("../54")
-node_left = NodePath("../52")
 
-[node name="54" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="54" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 31)
-node_up = NodePath("../55")
-node_left = NodePath("../53")
 
-[node name="55" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="55" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 25)
-node_down = NodePath("../54")
-node_left = NodePath("../57")
 
-[node name="56" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="56" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
-node_down = NodePath("../53")
-node_right = NodePath("../57")
 
-[node name="57" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="57" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 25)
-node_up = NodePath("../58")
-node_right = NodePath("../55")
-node_left = NodePath("../56")
 
-[node name="58" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="58" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 19)
-node_down = NodePath("../57")
-node_right = NodePath("../59")
-node_left = NodePath("../60")
 
-[node name="59" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="59" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 19)
-node_up = NodePath("../73")
-node_left = NodePath("../58")
 
-[node name="60" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="60" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 19)
-node_up = NodePath("../28")
-node_down = NodePath("../52")
-node_right = NodePath("../58")
-node_left = NodePath("../35")
 
-[node name="61" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="61" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 13)
-node_up = NodePath("../25")
-node_right = NodePath("../73")
 
-[node name="62" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="62" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 1)
-node_up = NodePath("../18")
-node_right = NodePath("../24")
 
-[node name="63" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="63" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5)
-node_up = NodePath("../12")
-node_right = NodePath("../17")
-node_left = NodePath("../64")
 
-[node name="64" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="64" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
-node_up = NodePath("../11")
-node_right = NodePath("../63")
-node_left = NodePath("../65")
 
-[node name="65" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right") instance=ExtResource("3_qgs88")]
+[node name="65" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -5)
-node_up = NodePath("../66")
-node_down = NodePath("../72")
-node_right = NodePath("../64")
 
-[node name="66" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="66" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -11)
-node_down = NodePath("../65")
-node_left = NodePath("../67")
 
-[node name="67" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="67" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -11)
-node_up = NodePath("../68")
-node_right = NodePath("../66")
-node_left = NodePath("../6")
 
-[node name="68" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_right", "node_left") instance=ExtResource("3_qgs88")]
+[node name="68" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -17)
-node_down = NodePath("../67")
-node_right = NodePath("../69")
-node_left = NodePath("../70")
 
-[node name="69" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_left") instance=ExtResource("3_qgs88")]
+[node name="69" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -17)
-node_up = NodePath("../9")
-node_left = NodePath("../68")
 
-[node name="70" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right") instance=ExtResource("3_qgs88")]
+[node name="70" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -17)
-node_up = NodePath("../8")
-node_right = NodePath("../68")
 
-[node name="71" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="71" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -25)
-node_down = NodePath("../21")
-node_left = NodePath("../14")
 
 [node name="72" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_right", "node_left") instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 7)
@@ -502,10 +324,8 @@ node_up = NodePath("../65")
 node_right = NodePath("../32")
 node_left = NodePath("../1")
 
-[node name="73" parent="environment/turns" node_paths=PackedStringArray("node_down", "node_left") instance=ExtResource("3_qgs88")]
+[node name="73" parent="environment/turns" instance=ExtResource("3_qgs88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 13)
-node_down = NodePath("../59")
-node_left = NodePath("../61")
 
 [node name="points" type="Node" parent="environment"]
 
@@ -632,25 +452,13 @@ transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 
 
 [node name="cars" type="Node" parent="."]
 
-[node name="car_police_1" parent="cars" instance=ExtResource("4_u5hvt")]
+[node name="car" parent="cars" instance=ExtResource("3_7ayve")]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -12, 0, 7)
-
-[node name="car_taxi2" parent="cars" instance=ExtResource("5_6arsf")]
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 0, -5)
-
-[node name="car_hatchback2" parent="cars" instance=ExtResource("6_qvyiw")]
-transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -9, 0, -21)
-
-[node name="car_stationwagon2" parent="cars" instance=ExtResource("7_speok")]
-transform = Transform3D(-3, 0, 4.52987e-07, 0, 3, 0, -4.52987e-07, 0, -3, 25, 0, -20)
-
-[node name="car_sedan2" parent="cars" instance=ExtResource("8_brocc")]
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
 
 [node name="PlayerBike" parent="." groups=["player"] instance=ExtResource("3_4wsir")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -26.4009, 0.55, 7.35833)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 40, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
 visible = false
 current = true
