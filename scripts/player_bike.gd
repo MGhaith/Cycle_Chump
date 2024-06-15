@@ -25,14 +25,13 @@ func _physics_process(delta):
 	var input_dir = Input.get_axis("right", "left")
 	
 	# a function that helps change the speed
-	if Input.is_action_pressed("shift"):
+	if Input.is_action_pressed("sprint"):
 		bike_current_speed = bike_slow_speed
 	else:
 		bike_current_speed = bike_normal_speed
 	
 	
 	engine_force = lerp(engine_force, bike_current_speed, delta )
-	print(deg_to_rad(steer_angle))
 	
 	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
 	
@@ -55,21 +54,16 @@ func _integrate_forces(state):
 	elif negative_vel < 13:
 		is_steering_lean = false
 	
-	print(is_steering_lean, "negative_vel ", negative_vel, angular_velocity)
-	
 	var input_dir = Input.get_axis("right", "left")
 	
 	if is_on_ground:
 		if is_steering_lean:
 			angular_velocity = lerp(angular_velocity, -state.transform.basis.z * input_dir, 0.1)
 			steering = lerp(steering, rotation.z / 2, 0.1)
-			print("a")
 		elif abs(rotation_degrees.z) >= 1:
 			angular_velocity = lerp(angular_velocity, -state.transform.basis.z * sign(rotation_degrees.z), 0.1)
-			print("b")
 		else:
 			angular_velocity.x = 0
 			angular_velocity.z = 0
-			print("c")
 	
 	
