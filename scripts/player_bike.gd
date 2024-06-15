@@ -48,7 +48,7 @@ func _ready():
 		printerr("Player needs a camara to work, assign the camara on player bike properties")
 	else:
 		visible_on_screen_enabler_3d.screen_exited.connect(Callable(camara_world, "_on_player_screen_exited"))
-
+		visible_on_screen_enabler_3d.screen_entered.connect(Callable(camara_world, "_on_player_screen_entered"))
 
 func _stamina_timer():
 	if bike_current_speed > bike_normal_speed:
