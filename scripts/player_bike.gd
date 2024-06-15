@@ -110,7 +110,7 @@ func _banana_area_entered(area_rid, area, area_shape_index, local_shape_index):
 				banana_animations.play("picked")
 
 		var preview_stamina = current_stamina + stamina_gain_per_banana
-
+    
 		if preview_stamina > 100:
 			current_stamina = 100
 		else:
