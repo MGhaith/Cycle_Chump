@@ -5,31 +5,39 @@ extends VehicleBody3D
 @export var front_wheel : VehicleWheel3D
 @export var rear_wheel : VehicleWheel3D
 
-@export_category("Bike Values")
-@export var steer_angle = 28.0
-@export var steer_speed = 5.0
+@export_category("Bike Steer Values")
 
-@export_category("Stamina System")
-@export var current_stamina = 100.0
-@export var max_stamina_remover = 5.0
-## This max stamina remover helps when the player is using the bike full speed
+## This variable hes steer when the bike engine force is greater than the subtracted bike_normal_speed by 2
+@export var steer_fast_angle = 45.0
 
-@export var min_stamina_remover = 2.0
-## This min stamina remover helps when the player is using the bike at normal speed
-
-
+@export var steer_normal_angle = 25.0
+@export var steer_speed = 15.0
 
 @export_category("Bike Speeds Mesure In Kilometres")
-@export var bike_normal_speed = 20.0
-@export var bike_max_speed = 30.0
+@export var bike_normal_speed = 15.0
+@export var bike_max_speed = 25.0
 
 @onready var AnimationController = $BicycleMesh/AnimationPlayer
 @onready var stamina_timer = $StaminaTimer
 
-var bike_current_speed = 0.0
+@export_category("Stamina System")
+@export var current_stamina = 100.0
+
+@export var stamina_gain_per_banana = 10
+
+## This max stamina remover helps when the player is using the bike full speed
+@export var max_stamina_remover = 5.0
+
+## This min stamina remover helps when the player is using the bike at normal speed
+@export var min_stamina_remover = 2.0
+
+var bike_current_speed = bike_normal_speed
+var steer_current_angle = steer_normal_angle
 
 var is_on_ground = false
 var is_steering_lean = false
+
+var is_bike_flipping = false
 
 func _stamina_timer():
 	if bike_current_speed > bike_normal_speed:
@@ -42,7 +50,7 @@ func _process(_delta):
 		engine_force = 0
 
 func _physics_process(delta):
-	print("Current Stamina", current_stamina)
+	print("Current Stamina: ", current_stamina)
 	# gets the input axis (positive, negative)
 	var input_dir = Input.get_axis("right", "left")
 	
@@ -52,14 +60,18 @@ func _physics_process(delta):
 	else:
 		bike_current_speed = bike_normal_speed
 	
+	if engine_force - steering > bike_normal_speed -2:
+		steer_current_angle = steer_fast_angle
+	else:
+		steer_current_angle = steer_normal_angle
 	
 	engine_force = lerp(engine_force, bike_current_speed, delta )
-	print(engine_force)
+	print("Engine Force:", engine_force, "Steering: ", steering, "Liniear velocity", linear_velocity)
 	AnimationController.speed_scale = engine_force / bike_current_speed + delta
 
-	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
+	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_current_angle), steer_speed * delta)
 	
-	var target_rotation = input_dir * steer_angle
+	var target_rotation = input_dir * steer_current_angle
 	front_wheel_mesh.rotation_degrees.y = lerp(front_wheel_mesh.rotation_degrees.y, target_rotation, steer_speed * delta)
 
 func _integrate_forces(state):
@@ -89,7 +101,37 @@ func _integrate_forces(state):
 		else:
 			angular_velocity.x = 0
 			angular_velocity.z = 0
-	
-	
+
+func _banana_area_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.is_in_group("banana"):
+		print("Gain stamina")
+		var banana_children = area.get_children()
+
+		# Play the animations "picked" from the banana before queue_freeing
+		for child in banana_children:
+			if child is AnimationPlayer:
+				var banana_animations : AnimationPlayer = child
+				banana_animations.play("picked")
+
+		var preview_stamina = current_stamina + stamina_gain_per_banana
+
+		if preview_stamina > 100:
+			current_stamina = 100
+		else:
+			current_stamina + stamina_gain_per_banana
+
+		await get_tree().create_timer(1).timeout
+		area.queue_free()
 
 
+func _input(event):
+	if event.is_action_pressed("space") and !is_bike_flipping:
+		is_bike_flipping = true
+		var tween = get_tree().create_tween()
+		engine_force = 0
+		tween.tween_property(self, "position", Vector3(position.x, position.y + 0.5, position.z), 0.5)
+		tween.tween_property(self, "rotation_degrees:y", rotation_degrees.y + 180, 0.5)
+		engine_force = 10
+		tween.play()
+		await get_tree().create_timer(2).timeout
+		is_bike_flipping = false
