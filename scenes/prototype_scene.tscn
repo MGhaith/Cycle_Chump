@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
-[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="2_5cps8"]
+[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/player_bike.tscn" id="2_5cps8"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_emp8m"]
 
