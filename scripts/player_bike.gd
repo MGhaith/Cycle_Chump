@@ -1,28 +1,29 @@
 extends VehicleBody3D
 
+@onready var AnimationController = $BicycleMesh/AnimationPlayer
+@onready var stamina_timer = $StaminaTimer
+
 @export_category("Bike Mesh")
 @export var front_wheel_mesh : MeshInstance3D
 @export var front_wheel : VehicleWheel3D
 @export var rear_wheel : VehicleWheel3D
 
+#_________
+
 @export_category("Bike Steer Values")
-
-## This variable hes steer when the bike engine force is greater than the subtracted bike_normal_speed by 2
-@export var steer_fast_angle = 45.0
-
-@export var steer_normal_angle = 25.0
+@export var steer_angle = 45.0
 @export var steer_speed = 15.0
+
+#_________
 
 @export_category("Bike Speeds Mesure In Kilometres")
 @export var bike_normal_speed = 15.0
 @export var bike_max_speed = 25.0
 
-@onready var AnimationController = $BicycleMesh/AnimationPlayer
-@onready var stamina_timer = $StaminaTimer
+#_________
 
 @export_category("Stamina System")
 @export var current_stamina = 100.0
-
 @export var stamina_gain_per_banana = 10
 
 ## This max stamina remover helps when the player is using the bike full speed
@@ -32,7 +33,6 @@ extends VehicleBody3D
 @export var min_stamina_remover = 2.0
 
 var bike_current_speed = bike_normal_speed
-var steer_current_angle = steer_normal_angle
 
 var is_on_ground = false
 var is_steering_lean = false
@@ -60,18 +60,14 @@ func _physics_process(delta):
 	else:
 		bike_current_speed = bike_normal_speed
 	
-	if engine_force - steering > bike_normal_speed -2:
-		steer_current_angle = steer_fast_angle
-	else:
-		steer_current_angle = steer_normal_angle
 	
 	engine_force = lerp(engine_force, bike_current_speed, delta )
 	print("Engine Force:", engine_force, "Steering: ", steering, "Liniear velocity", linear_velocity)
 	AnimationController.speed_scale = engine_force / bike_current_speed + delta
 
-	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_current_angle), steer_speed * delta)
+	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
 	
-	var target_rotation = input_dir * steer_current_angle
+	var target_rotation = input_dir * steer_angle
 	front_wheel_mesh.rotation_degrees.y = lerp(front_wheel_mesh.rotation_degrees.y, target_rotation, steer_speed * delta)
 
 func _integrate_forces(state):
