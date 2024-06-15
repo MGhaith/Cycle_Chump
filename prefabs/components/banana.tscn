@@ -129,7 +129,7 @@ _data = {
 "idle": SubResource("Animation_bdrlh")
 }
 
-[node name="Banana" type="Area3D"]
+[node name="Banana" type="Area3D" groups=["banana"]]
 
 [node name="BananaMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, -6.66422e-31, 2.91302e-38, 0, -4.37114e-08, -1, 6.66422e-31, 1, -4.37114e-08, 0, 0, 0)
