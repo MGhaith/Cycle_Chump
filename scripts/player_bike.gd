@@ -56,6 +56,7 @@ func _physics_process(delta):
 	engine_force = lerp(engine_force, bike_current_speed, delta )
 	print(engine_force)
 	AnimationController.speed_scale = engine_force / bike_current_speed + delta
+
 	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
 	
 	var target_rotation = input_dir * steer_angle

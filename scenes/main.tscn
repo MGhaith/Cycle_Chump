@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgdownv8eesq0"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4d4tr"]
+[ext_resource type="PackedScene" uid="uid://bnx1q24o123vw" path="res://scenes/prototype_scene.tscn" id="2_xcno3"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("points_node")]
+script = ExtResource("1_4d4tr")
+points_node = NodePath("GameScene/environment/points")
+
+[node name="GameScene" parent="." instance=ExtResource("2_xcno3")]
+
+[node name="PlayerBike" parent="GameScene" index="3"]
+transform = Transform3D(-0.119565, 0, -0.992826, 0, 1, 0, 0.992826, 0, -0.119565, 0.160516, 0.682896, -4.87438)
+
+[editable path="GameScene"]
