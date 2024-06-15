@@ -3,13 +3,106 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4d4tr"]
 [ext_resource type="PackedScene" uid="uid://bnx1q24o123vw" path="res://scenes/prototype_scene.tscn" id="2_xcno3"]
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("points_node")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("points_node", "score_value_ui", "points_left_ui")]
 script = ExtResource("1_4d4tr")
 points_node = NodePath("GameScene/environment/points")
+score_value_ui = NodePath("CanvasLayer/Control/Panel/ScoreValue")
+points_left_ui = NodePath("CanvasLayer/Control/Panel2/PointsLeft")
 
 [node name="GameScene" parent="." instance=ExtResource("2_xcno3")]
 
 [node name="PlayerBike" parent="GameScene" index="2"]
 transform = Transform3D(-0.00294967, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00294967, -27.8395, 0.682896, 7.12562)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -25.0
+offset_right = -32.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -11.5
+offset_right = 53.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "SCORE:"
+
+[node name="ScoreValue" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -11.0
+offset_right = -10.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "999999999999"
+horizontal_alignment = 2
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 5.0
+offset_right = 80.0
+offset_bottom = 55.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -11.5
+offset_right = 112.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Points Left:"
+uppercase = true
+
+[node name="PointsLeft" type="Label" parent="CanvasLayer/Control/Panel2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.0
+offset_right = -10.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "999"
+horizontal_alignment = 2
 
 [editable path="GameScene"]
