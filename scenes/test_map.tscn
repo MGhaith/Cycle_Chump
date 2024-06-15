@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpnlumod7ymav"]
+
+[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/player_bike.tscn" id="1_xrk30"]
+[ext_resource type="Texture2D" uid="uid://fro5w0q1mglk" path="res://icon.svg" id="2_5eqbn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsn1p"]
+albedo_texture = ExtResource("2_5eqbn")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l2cs5"]
+lightmap_size_hint = Vector2i(5002, 5002)
+material = SubResource("StandardMaterial3D_hsn1p")
+size = Vector2(10, 1000)
+
+[node name="TestMap" type="Node3D"]
+
+[node name="PlayerBike" parent="." instance=ExtResource("1_xrk30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0320497, -390.514)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("PlaneMesh_l2cs5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.332307, 0.3856, -0.860747, 0.138878, 0.922666, 0.359723, 0.932891, -1.39012e-08, -0.36016, 0, 4.36817, 0)
+shadow_enabled = true
