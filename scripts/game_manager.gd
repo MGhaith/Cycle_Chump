@@ -1,10 +1,16 @@
 extends Node
+class_name GameManager
+
+@export var points_node: Node
 
 var player_score: int
 
 func _ready():
-	print_debug("Game Manager Ready")
+	for point in points_node.get_children():
+		point.game_manager = self
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	print_debug("Game Manager Ready")
 	
 
 func _process(_delta):
@@ -14,3 +20,4 @@ func _process(_delta):
 
 func change_score(value : int):
 	player_score += value
+	print(str(player_score))
