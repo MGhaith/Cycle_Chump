@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=16 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
 [ext_resource type="PackedScene" uid="uid://cor10csgxhna1" path="res://prefabs/point.tscn" id="2_qy2bi"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dn6pttqt6ocdt" path="res://prefabs/car_taxi_5.tscn" id="5_6arsf"]
 [ext_resource type="PackedScene" uid="uid://4hc26mod4xjf" path="res://prefabs/car_hatchback_2.tscn" id="6_qvyiw"]
 [ext_resource type="PackedScene" uid="uid://bnhepdhican81" path="res://prefabs/car_stationwagon_4.tscn" id="7_speok"]
+[ext_resource type="PackedScene" uid="uid://km2dygplu1hh" path="res://prefabs/road_block.tscn" id="7_unrhn"]
 [ext_resource type="PackedScene" uid="uid://j701dsjbkcbp" path="res://prefabs/car_sedan_3.tscn" id="8_brocc"]
 [ext_resource type="PackedScene" uid="uid://dsx162hje5d52" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="13_fbh8y"]
 
@@ -1507,6 +1508,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -19)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment/lights"]
 transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 0, 1.31225, 0)
+
+[node name="RoadBlocks" type="Node" parent="environment"]
+
+[node name="RoadBlock" parent="environment/RoadBlocks" instance=ExtResource("7_unrhn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7)
+
+[node name="RoadBlock2" parent="environment/RoadBlocks" instance=ExtResource("7_unrhn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 1)
 
 [node name="cars" type="Node" parent="."]
 
