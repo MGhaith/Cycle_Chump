@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgdownv8eesq0"]
+[gd_scene load_steps=5 format=3 uid="uid://dgdownv8eesq0"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4d4tr"]
 [ext_resource type="PackedScene" uid="uid://bnx1q24o123vw" path="res://scenes/prototype_scene.tscn" id="2_xcno3"]
+[ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="3_yyfe4"]
+[ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="4_o85e4"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("points_node", "score_value_ui", "points_left_ui")]
 script = ExtResource("1_4d4tr")
@@ -47,7 +49,9 @@ offset_top = -11.5
 offset_right = 53.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yyfe4")
 text = "SCORE:"
+vertical_alignment = 1
 
 [node name="ScoreValue" type="Label" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
@@ -62,17 +66,19 @@ offset_right = -10.0
 offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yyfe4")
 text = "999999999999"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Panel2" type="Panel" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -80.0
+offset_left = -90.0
 offset_top = 5.0
-offset_right = 80.0
+offset_right = 90.0
 offset_bottom = 55.0
 grow_horizontal = 2
 
@@ -86,7 +92,9 @@ offset_top = -11.5
 offset_right = 112.0
 offset_bottom = 11.5
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_o85e4")
 text = "Points Left:"
+vertical_alignment = 1
 uppercase = true
 
 [node name="PointsLeft" type="Label" parent="CanvasLayer/Control/Panel2"]
@@ -102,7 +110,9 @@ offset_right = -10.0
 offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yyfe4")
 text = "999"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [editable path="GameScene"]
