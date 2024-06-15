@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
 [ext_resource type="PackedScene" path="res://prefabs/point.tscn" id="2_qy2bi"]
 [ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="3_4wsir"]
-[ext_resource type="PackedScene" uid="uid://b4oakddva3l7m" path="res://prefabs/components/banana.tscn" id="3_qusq7"]
+[ext_resource type="PackedScene" uid="uid://b4oakddva3l7m" path="res://prefabs/components/banana.tscn" id="3_6g6ho"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -182,13 +182,16 @@ transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 
 
 [node name="bananas" type="Node" parent="environment"]
 
-[node name="Banana" parent="environment/bananas" instance=ExtResource("3_qusq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.78, -5)
+[node name="Banana" parent="environment/bananas" instance=ExtResource("3_6g6ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -5)
 
 [node name="cars" type="Node" parent="."]
 
 [node name="PlayerBike" parent="." groups=["player"] instance=ExtResource("3_4wsir")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.08165e-12, 0.55, -5)
+steer_speed = 15.0
+bike_normal_speed = 28.0
+bike_max_speed = 38.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
