@@ -1,6 +1,7 @@
 extends Area3D
 
 var game_manager: GameManager
+var point_value: int = 10
 
 func _physics_process(_delta):
 	if game_manager == null:
@@ -10,6 +11,6 @@ func _physics_process(_delta):
 		var overlaping_bodies = get_overlapping_bodies()
 		for body in overlaping_bodies:
 			if body.is_in_group("player"):
-				game_manager.change_score(100)
+				game_manager.change_score(point_value)
 				self.queue_free()
 

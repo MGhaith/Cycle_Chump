@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=14 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
 [ext_resource type="PackedScene" uid="uid://cor10csgxhna1" path="res://prefabs/point.tscn" id="2_qy2bi"]
+[ext_resource type="PackedScene" uid="uid://dnemhylra16h" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_A_withoutBase.gltf" id="2_xa42e"]
 [ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="3_4wsir"]
 [ext_resource type="PackedScene" uid="uid://dx8aytrqxm76n" path="res://prefabs/turn_point.tscn" id="3_qgs88"]
+[ext_resource type="PackedScene" uid="uid://cgdcx367q4240" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_B_withoutBase.gltf" id="3_x3a2n"]
+[ext_resource type="PackedScene" uid="uid://btybfjkwp5mjb" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_C_withoutBase.gltf" id="4_qxquk"]
 [ext_resource type="PackedScene" uid="uid://c5le3ve5kw50j" path="res://prefabs/car_police_1.tscn" id="4_u5hvt"]
 [ext_resource type="PackedScene" uid="uid://dn6pttqt6ocdt" path="res://prefabs/car_taxi_5.tscn" id="5_6arsf"]
 [ext_resource type="PackedScene" uid="uid://4hc26mod4xjf" path="res://prefabs/car_hatchback_2.tscn" id="6_qvyiw"]
@@ -90,6 +93,18 @@ polygon = PackedVector2Array(0, 0, 10, 0, 10, 4, 4, 4, 4, 10, 0, 10)
 [node name="CollisionPolygon3D14" type="CollisionPolygon3D" parent="environment/buildings/collisions"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -33, 0, 32)
 polygon = PackedVector2Array(0, 0, 66, 0, 66, 4, 0, 4)
+
+[node name="building_A_withoutBase2" parent="environment/buildings" instance=ExtResource("2_xa42e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 5)
+
+[node name="building_B_withoutBase2" parent="environment/buildings" instance=ExtResource("3_x3a2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 5)
+
+[node name="building_C_withoutBase2" parent="environment/buildings" instance=ExtResource("4_qxquk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17, 0, 3.81749)
+
+[node name="building_C_withoutBase3" parent="environment/buildings" instance=ExtResource("4_qxquk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17, 0, 2.63001)
 
 [node name="turns" type="Node" parent="environment"]
 
@@ -511,119 +526,981 @@ node_left = NodePath("../61")
 
 [node name="PointArea" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1256, 0, 7.04873)
-visible = false
 
 [node name="PointArea2" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 7)
-visible = false
 
 [node name="PointArea3" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
-visible = false
 
 [node name="PointArea4" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 7)
-visible = false
 
 [node name="PointArea5" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 7)
-visible = false
 
 [node name="PointArea6" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5)
-visible = false
 
 [node name="PointArea7" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3)
-visible = false
+
+[node name="PointArea223" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 5)
+
+[node name="PointArea224" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 3)
 
 [node name="PointArea8" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
-visible = false
 
 [node name="PointArea9" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -1)
-visible = false
 
 [node name="PointArea10" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3)
-visible = false
 
 [node name="PointArea11" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5)
-visible = false
+
+[node name="PointArea194" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -5)
+
+[node name="PointArea195" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -5)
 
 [node name="PointArea12" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
-visible = false
 
 [node name="PointArea13" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -9)
-visible = false
+
+[node name="PointArea181" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 1)
+
+[node name="PointArea182" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -1)
+
+[node name="PointArea183" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -3)
+
+[node name="PointArea184" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -5)
+
+[node name="PointArea214" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 1)
+
+[node name="PointArea215" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -1)
+
+[node name="PointArea216" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -3)
+
+[node name="PointArea217" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -5)
+
+[node name="PointArea200" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -19)
+
+[node name="PointArea201" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -19)
+
+[node name="PointArea202" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -19)
+
+[node name="PointArea225" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -21)
+
+[node name="PointArea226" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -23)
+
+[node name="PointArea227" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -25)
+
+[node name="PointArea262" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -21)
+
+[node name="PointArea263" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -23)
+
+[node name="PointArea264" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -25)
+
+[node name="PointArea228" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -19)
+
+[node name="PointArea229" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -21)
+
+[node name="PointArea230" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -23)
+
+[node name="PointArea231" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -25)
+
+[node name="PointArea203" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -19)
+
+[node name="PointArea204" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -13)
+
+[node name="PointArea205" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -13)
+
+[node name="PointArea218" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 1)
+
+[node name="PointArea219" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 1)
+
+[node name="PointArea206" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -13)
+
+[node name="PointArea207" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -13)
+
+[node name="PointArea212" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -7)
+
+[node name="PointArea213" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -7)
+
+[node name="PointArea185" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -7)
+
+[node name="PointArea186" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -9)
+
+[node name="PointArea187" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -11)
+
+[node name="PointArea188" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -13)
+
+[node name="PointArea208" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -7)
+
+[node name="PointArea209" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -9)
+
+[node name="PointArea210" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -11)
+
+[node name="PointArea211" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -13)
+
+[node name="PointArea196" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -13)
+
+[node name="PointArea197" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -15)
+
+[node name="PointArea198" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -17)
+
+[node name="PointArea199" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -19)
+
+[node name="PointArea220" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -15)
+
+[node name="PointArea221" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -17)
+
+[node name="PointArea232" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -15)
+
+[node name="PointArea233" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -17)
+
+[node name="PointArea222" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -19)
 
 [node name="PointArea14" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -11)
-visible = false
+
+[node name="PointArea234" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
+
+[node name="PointArea235" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -9)
+
+[node name="PointArea236" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -13)
+
+[node name="PointArea237" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -15)
+
+[node name="PointArea241" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -7)
+
+[node name="PointArea242" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -13)
+
+[node name="PointArea243" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -17)
+
+[node name="PointArea244" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -19)
+
+[node name="PointArea245" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -11)
+
+[node name="PointArea246" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9)
+
+[node name="PointArea247" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -15)
+
+[node name="PointArea248" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -7)
+
+[node name="PointArea249" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -13)
+
+[node name="PointArea250" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -17)
+
+[node name="PointArea251" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -19)
+
+[node name="PointArea252" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -11)
+
+[node name="PointArea253" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -9)
+
+[node name="PointArea254" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -15)
+
+[node name="PointArea255" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -7)
+
+[node name="PointArea256" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -13)
+
+[node name="PointArea257" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -17)
+
+[node name="PointArea258" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -19)
+
+[node name="PointArea313" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -21)
+
+[node name="PointArea314" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -23)
+
+[node name="PointArea315" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -21)
+
+[node name="PointArea316" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -23)
+
+[node name="PointArea259" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -11)
+
+[node name="PointArea260" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -9)
+
+[node name="PointArea261" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -15)
+
+[node name="PointArea238" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -17)
+
+[node name="PointArea239" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -19)
+
+[node name="PointArea265" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -25)
+
+[node name="PointArea266" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -25)
+
+[node name="PointArea269" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -25)
+
+[node name="PointArea270" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -25)
+
+[node name="PointArea271" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -25)
+
+[node name="PointArea272" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, -25)
+
+[node name="PointArea273" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -25)
+
+[node name="PointArea274" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -25)
+
+[node name="PointArea267" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -25)
+
+[node name="PointArea268" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -25)
+
+[node name="PointArea240" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -11)
 
 [node name="PointArea15" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
-visible = false
 
 [node name="PointArea16" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
-visible = false
 
 [node name="PointArea17" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -5)
-visible = false
 
 [node name="PointArea18" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -5)
-visible = false
 
 [node name="PointArea19" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3)
-visible = false
+
+[node name="PointArea275" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -9)
+
+[node name="PointArea276" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -7)
+
+[node name="PointArea277" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+
+[node name="PointArea278" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -13)
 
 [node name="PointArea20" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -1)
-visible = false
 
 [node name="PointArea21" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 1)
-visible = false
 
 [node name="PointArea22" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 3)
-visible = false
+
+[node name="PointArea176" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -5)
+
+[node name="PointArea177" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -3)
+
+[node name="PointArea178" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -1)
+
+[node name="PointArea179" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 1)
+
+[node name="PointArea282" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -5)
+
+[node name="PointArea283" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -3)
+
+[node name="PointArea284" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -1)
+
+[node name="PointArea285" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 1)
+
+[node name="PointArea180" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 3)
 
 [node name="PointArea23" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 5)
-visible = false
 
 [node name="PointArea24" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 7)
-visible = false
 
 [node name="PointArea25" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 7)
-visible = false
 
 [node name="PointArea26" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 7)
-visible = false
 
 [node name="PointArea27" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 7)
-visible = false
 
 [node name="PointArea28" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 7)
-visible = false
 
 [node name="PointArea29" parent="environment/points" instance=ExtResource("2_qy2bi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 7)
-visible = false
+
+[node name="PointArea189" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1256, 0, -4.95127)
+
+[node name="PointArea190" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="PointArea191" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -5)
+
+[node name="PointArea192" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -5)
+
+[node name="PointArea193" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -5)
+
+[node name="PointArea30" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 9)
+
+[node name="PointArea31" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 11)
+
+[node name="PointArea32" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 13)
+
+[node name="PointArea163" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 9)
+
+[node name="PointArea164" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 11)
+
+[node name="PointArea165" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
+
+[node name="PointArea166" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 15)
+
+[node name="PointArea167" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 15)
+
+[node name="PointArea168" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 15)
+
+[node name="PointArea169" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 15)
+
+[node name="PointArea170" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 17)
+
+[node name="PointArea33" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 13)
+
+[node name="PointArea34" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 13)
+
+[node name="PointArea35" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 13)
+
+[node name="PointArea161" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 15)
+
+[node name="PointArea162" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 17)
+
+[node name="PointArea36" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 13)
+
+[node name="PointArea37" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 13)
+
+[node name="PointArea38" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 11)
+
+[node name="PointArea39" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 9)
+
+[node name="PointArea40" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 7)
+
+[node name="PointArea41" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 7)
+
+[node name="PointArea42" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 7)
+
+[node name="PointArea43" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 7)
+
+[node name="PointArea44" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 7)
+
+[node name="PointArea45" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 9)
+
+[node name="PointArea46" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 11)
+
+[node name="PointArea47" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 13)
+
+[node name="PointArea48" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 13)
+
+[node name="PointArea49" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 13)
+
+[node name="PointArea50" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 15)
+
+[node name="PointArea51" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 17)
+
+[node name="PointArea52" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 19)
+
+[node name="PointArea53" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 19)
+
+[node name="PointArea54" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 19)
+
+[node name="PointArea55" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 19)
+
+[node name="PointArea56" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 19)
+
+[node name="PointArea136" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 25)
+
+[node name="PointArea137" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 25)
+
+[node name="PointArea138" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 25)
+
+[node name="PointArea139" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 25)
+
+[node name="PointArea146" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 31)
+
+[node name="PointArea147" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 31)
+
+[node name="PointArea148" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 31)
+
+[node name="PointArea149" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 31)
+
+[node name="PointArea57" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 19)
+
+[node name="PointArea58" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 19)
+
+[node name="PointArea59" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 19)
+
+[node name="PointArea60" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 19)
+
+[node name="PointArea61" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 19)
+
+[node name="PointArea62" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 19)
+
+[node name="PointArea63" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 19)
+
+[node name="PointArea64" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 19)
+
+[node name="PointArea65" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 19)
+
+[node name="PointArea66" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 19)
+
+[node name="PointArea67" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 19)
+
+[node name="PointArea68" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 19)
+
+[node name="PointArea69" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 19)
+
+[node name="PointArea70" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 19)
+
+[node name="PointArea71" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 19)
+
+[node name="PointArea72" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 19)
+
+[node name="PointArea73" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 19)
+
+[node name="PointArea160" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 25)
+
+[node name="PointArea74" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 19)
+
+[node name="PointArea75" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 19)
+
+[node name="PointArea76" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 19)
+
+[node name="PointArea77" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 19)
+
+[node name="PointArea78" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 21)
+
+[node name="PointArea79" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 23)
+
+[node name="PointArea80" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 25)
+
+[node name="PointArea81" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 27)
+
+[node name="PointArea82" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 29)
+
+[node name="PointArea114" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 25)
+
+[node name="PointArea140" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 23)
+
+[node name="PointArea141" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 21)
+
+[node name="PointArea142" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 23)
+
+[node name="PointArea143" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 21)
+
+[node name="PointArea144" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 23)
+
+[node name="PointArea145" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 21)
+
+[node name="PointArea115" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 27)
+
+[node name="PointArea116" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 29)
+
+[node name="PointArea154" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 25)
+
+[node name="PointArea155" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 27)
+
+[node name="PointArea156" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 29)
+
+[node name="PointArea157" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 21)
+
+[node name="PointArea158" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 23)
+
+[node name="PointArea159" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 25)
+
+[node name="PointArea117" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 27)
+
+[node name="PointArea118" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 29)
+
+[node name="PointArea83" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 31)
+
+[node name="PointArea84" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 13)
+
+[node name="PointArea88" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 13)
+
+[node name="PointArea89" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 11)
+
+[node name="PointArea90" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 9)
+
+[node name="PointArea171" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 13)
+
+[node name="PointArea172" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 11)
+
+[node name="PointArea173" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 9)
+
+[node name="PointArea91" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 7)
+
+[node name="PointArea92" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 7)
+
+[node name="PointArea93" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 7)
+
+[node name="PointArea287" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -5)
+
+[node name="PointArea290" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -5)
+
+[node name="PointArea288" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -5)
+
+[node name="PointArea289" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -5)
+
+[node name="PointArea291" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -11)
+
+[node name="PointArea296" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -11)
+
+[node name="PointArea297" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -11)
+
+[node name="PointArea298" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -11)
+
+[node name="PointArea304" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -17)
+
+[node name="PointArea292" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -11)
+
+[node name="PointArea293" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -11)
+
+[node name="PointArea294" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -11)
+
+[node name="PointArea295" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -11)
+
+[node name="PointArea305" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -25)
+
+[node name="PointArea306" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -25)
+
+[node name="PointArea307" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -25)
+
+[node name="PointArea308" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -25)
+
+[node name="PointArea309" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -25)
+
+[node name="PointArea310" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -25)
+
+[node name="PointArea311" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -25)
+
+[node name="PointArea312" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -25)
+
+[node name="PointArea299" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -17)
+
+[node name="PointArea300" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -17)
+
+[node name="PointArea301" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -17)
+
+[node name="PointArea302" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -17)
+
+[node name="PointArea303" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -17)
+
+[node name="PointArea94" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 7)
+
+[node name="PointArea95" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5)
+
+[node name="PointArea279" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 1)
+
+[node name="PointArea286" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 1)
+
+[node name="PointArea280" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 3)
+
+[node name="PointArea281" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 5)
+
+[node name="PointArea85" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 13)
+
+[node name="PointArea86" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 15)
+
+[node name="PointArea87" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 17)
+
+[node name="PointArea174" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15)
+
+[node name="PointArea175" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 17)
+
+[node name="PointArea96" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 7)
+
+[node name="PointArea97" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 7)
+
+[node name="PointArea98" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 31)
+
+[node name="PointArea99" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 31)
+
+[node name="PointArea100" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, 31)
+
+[node name="PointArea101" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 31)
+
+[node name="PointArea102" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 31)
+
+[node name="PointArea103" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 31)
+
+[node name="PointArea104" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 31)
+
+[node name="PointArea105" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 31)
+
+[node name="PointArea106" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 31)
+
+[node name="PointArea107" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 31)
+
+[node name="PointArea108" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 31)
+
+[node name="PointArea109" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 31)
+
+[node name="PointArea110" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 25)
+
+[node name="PointArea111" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 25)
+
+[node name="PointArea112" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 25)
+
+[node name="PointArea113" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 25)
+
+[node name="PointArea123" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 25)
+
+[node name="PointArea119" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 27)
+
+[node name="PointArea120" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 29)
+
+[node name="PointArea121" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 31)
+
+[node name="PointArea122" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 25)
+
+[node name="PointArea124" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 27)
+
+[node name="PointArea125" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 29)
+
+[node name="PointArea126" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 31)
+
+[node name="PointArea127" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 25)
+
+[node name="PointArea128" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 27)
+
+[node name="PointArea129" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 29)
+
+[node name="PointArea130" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 31)
+
+[node name="PointArea150" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 31)
+
+[node name="PointArea151" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 31)
+
+[node name="PointArea152" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 31)
+
+[node name="PointArea153" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 31)
+
+[node name="PointArea131" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 25)
+
+[node name="PointArea132" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 27)
+
+[node name="PointArea133" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 29)
+
+[node name="PointArea134" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 31)
+
+[node name="PointArea135" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 25)
+
+[node name="PointArea317" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -25)
+
+[node name="PointArea318" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -25)
+
+[node name="PointArea319" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -25)
+
+[node name="PointArea320" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -25)
+
+[node name="PointArea321" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -23)
+
+[node name="PointArea322" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -21)
+
+[node name="PointArea323" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -19)
+
+[node name="PointArea324" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -23)
+
+[node name="PointArea325" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -21)
+
+[node name="PointArea326" parent="environment/points" instance=ExtResource("2_qy2bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -19)
 
 [node name="lights" type="Node" parent="environment"]
 
@@ -648,7 +1525,7 @@ transform = Transform3D(-3, 0, 4.52987e-07, 0, 3, 0, -4.52987e-07, 0, -3, 25, 0,
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
 
 [node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("3_4wsir")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -23.4009, 0.55, 7.35833)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -24, 0.55, 7)
 camara_world = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="."]

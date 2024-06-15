@@ -19,5 +19,6 @@ script = ExtResource("1_d8fy8")
 shape = SubResource("CylinderShape3D_q8hyq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 mesh = SubResource("SphereMesh_gihsy")
 surface_material_override/0 = SubResource("StandardMaterial3D_bvcxn")
