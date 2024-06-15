@@ -15,6 +15,16 @@ run/main_scene="res://scenes/prototype_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "teal",
+"res://assets/": "yellow",
+"res://prefabs/": "purple",
+"res://scenes/": "red",
+"res://scripts/": "green"
+}
+
 [input]
 
 left={
