@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
-[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="2_1i8pp"]
 [ext_resource type="PackedScene" uid="uid://b2qkiuvr8y48l" path="res://prefabs/point.tscn" id="2_qy2bi"]
+[ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="3_4wsir"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -181,9 +181,10 @@ transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 
 
 [node name="cars" type="Node" parent="."]
 
+[node name="PlayerBike" parent="." groups=["player"] instance=ExtResource("3_4wsir")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.08165e-12, 0.55, -5)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
 visible = false
-
-[node name="PlayerBike" parent="." instance=ExtResource("2_5cps8")]
-transform = Transform3D(-0.0223733, 0, -0.99975, 0, 1, 0, 0.99975, 0, -0.0223733, -0.0001055, 0.59442, 7.15773)
+current = true
