@@ -2,6 +2,10 @@ extends VehicleBody3D
 
 @onready var AnimationController = $BicycleMesh/AnimationPlayer
 @onready var stamina_timer = $StaminaTimer
+@onready var visible_on_screen_enabler_3d = $VisibleOnScreenEnabler3D
+
+@export_category("Bike Properties")
+@export var camara_world : Camera3D
 
 @export_category("Bike Mesh")
 @export var front_wheel_mesh : MeshInstance3D
@@ -39,6 +43,13 @@ var is_steering_lean = false
 
 var is_bike_flipping = false
 
+func _ready():
+	if not camara_world:
+		printerr("Player needs a camara to work, assign the camara on player bike properties")
+	else:
+		visible_on_screen_enabler_3d.screen_exited.connect(Callable(camara_world, "_on_player_screen_exited"))
+
+
 func _stamina_timer():
 	if bike_current_speed > bike_normal_speed:
 		current_stamina -= max_stamina_remover
@@ -50,7 +61,6 @@ func _process(_delta):
 		engine_force = 0
 
 func _physics_process(delta):
-	print("Current Stamina: ", current_stamina)
 	# gets the input axis (positive, negative)
 	var input_dir = Input.get_axis("right", "left")
 	
@@ -62,7 +72,6 @@ func _physics_process(delta):
 	
 	
 	engine_force = lerp(engine_force, bike_current_speed, delta )
-	print("Engine Force:", engine_force, "Steering: ", steering, "Liniear velocity", linear_velocity)
 	AnimationController.speed_scale = engine_force / bike_current_speed + delta
 
 	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
