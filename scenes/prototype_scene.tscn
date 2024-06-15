@@ -3,7 +3,8 @@
 [ext_resource type="MeshLibrary" uid="uid://drmx2qtg1jbui" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
 [ext_resource type="PackedScene" uid="uid://we1v4ccuakse" path="res://prefabs/characters/player_bike.tscn" id="2_5cps8"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_emp8m"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
+size = Vector3(13.5, 0.1, 13.5)
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,7 +22,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="environment/GridMap/StaticBody3D"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-shape = SubResource("WorldBoundaryShape3D_emp8m")
+shape = SubResource("BoxShape3D_jba31")
 
 [node name="buildings" type="Node" parent="environment"]
 
@@ -95,4 +96,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17,
 visible = false
 
 [node name="PlayerBike" parent="." instance=ExtResource("2_5cps8")]
-transform = Transform3D(0.00598635, 0, -0.499964, 0, 0.5, 0, 0.499964, 0, 0.00598635, -0.607806, 0.403366, 6.95134)
+transform = Transform3D(-0.0223733, 0, -0.99975, 0, 1, 0, 0.99975, 0, -0.0223733, -0.0001055, 0.59442, 7.15773)

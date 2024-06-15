@@ -6,22 +6,43 @@ extends VehicleBody3D
 @export var rear_wheel : VehicleWheel3D
 
 @export_category("Bike Values")
-@export var steer_angle = 20.0
-@export var steer_speed = 2.0
+@export var steer_angle = 28.0
+@export var steer_speed = 5.0
+
+@export_category("Stamina System")
+@export var current_stamina = 100.0
+@export var max_stamina_remover = 5.0
+## This max stamina remover helps when the player is using the bike full speed
+
+@export var min_stamina_remover = 2.0
+## This min stamina remover helps when the player is using the bike at normal speed
+
+
 
 @export_category("Bike Speeds Mesure In Kilometres")
 @export var bike_normal_speed = 20.0
 @export var bike_max_speed = 30.0
 
 @onready var AnimationController = $BicycleMesh/AnimationPlayer
+@onready var stamina_timer = $StaminaTimer
 
-var bike_current_speed = 5.0
+var bike_current_speed = 0.0
+
 var is_on_ground = false
 var is_steering_lean = false
 
+func _stamina_timer():
+	if bike_current_speed > bike_normal_speed:
+		current_stamina -= max_stamina_remover
+	else:
+		current_stamina -= min_stamina_remover
+
+func _process(delta):
+	if current_stamina == 0:
+		engine_force = 0
+
 func _physics_process(delta):
-	 # sets the steering amount base on the speed of the bike
-	
+	print("Current Stamina", current_stamina)
 	# gets the input axis (positive, negative)
 	var input_dir = Input.get_axis("right", "left")
 	
@@ -69,3 +90,5 @@ func _integrate_forces(state):
 			angular_velocity.z = 0
 	
 	
+
+
