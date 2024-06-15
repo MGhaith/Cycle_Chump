@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4oakddva3l7m"]
+[gd_scene load_steps=9 format=3 uid="uid://b4oakddva3l7m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfgf0"]
 resource_name = "brownDark"
@@ -64,18 +64,84 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_aa1f6")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g2r4j"]
-points = PackedVector3Array(0.0361559, 0.14493, 0.299858, -0.0301075, 0.00604401, -0.0178763, 0.0324762, 0.00604401, -0.0178763, -0.013794, 0.204935, -0.319898, -0.0337857, 0.174933, 0.319898, -0.0737984, 0.0749801, 0.139909, 0.0661434, 0.0849877, -0.0999526, 0.0331275, 0.0132307, 0.127795, -0.0237898, 0.14493, -0.319898, 0.0261601, 0.194927, -0.319898, 0.0161642, 0.194927, 0.319898, 0.0661434, 0.0849877, 0.179927, -0.0311678, 0.0213584, 0.147973, -0.0337857, 0.18494, -0.319898, -0.0625155, 0.0617548, -0.0339432, 0.0261601, 0.14493, -0.309815, -0.0223827, 0.0763884, 0.245254, -0.0303735, 0.0142765, -0.0721696, -0.0237898, 0.194927, 0.319898, 0.0320382, 0.016188, -0.0705598, 0.0261601, 0.18494, 0.319898, 0.0654421, 0.0614122, -0.00853502, 0.0245168, 0.0766237, 0.242806, -0.053792, 0.104962, 0.249881, 0.0161642, 0.204935, -0.309815, -0.0337857, 0.154918, 0.319898, -0.0373332, 0.0100858, 0.0599015, 0.023744, 0.0593359, -0.162526, 0.0330507, 0.00432013, 0.063744, -0.0551157, 0.0783157, -0.103921, 0.0561476, 0.104962, 0.239861, 0.0649422, 0.0617121, 0.0850058)
+[sub_resource type="SphereShape3D" id="SphereShape3D_i708l"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_bdrlh"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BananaMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector3(2.08165e-12, 0.5, 2.08165e-12), Vector3(2.08165e-12, -0.5, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BananaMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5708, -6.66422e-31, 0), Vector3(1.5708, 1.5708, 3.48787e-16), Vector3(1.5708, 3.14159, 3.48787e-16), Vector3(1.5708, 4.71239, 3.48787e-16), Vector3(1.5708, 6.28319, 3.48787e-16)]
+}
+
+[sub_resource type="Animation" id="Animation_3ulol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BananaMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BananaMesh:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, -6.66422e-31, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sspt0"]
+_data = {
+"RESET": SubResource("Animation_3ulol"),
+"idle": SubResource("Animation_bdrlh")
+}
 
 [node name="Banana" type="Area3D"]
 
 [node name="BananaMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, -6.66422e-31, 2.91302e-38, 0, -4.37114e-08, -1, 6.66422e-31, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ighid")
 skeleton = NodePath("")
 
 [node name="BananaCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_g2r4j")
+transform = Transform3D(1, 1.74846e-07, -7.64274e-15, -1.5246e-23, -4.37114e-08, -1, -1.74846e-07, 1, -4.37114e-08, 2.08165e-12, 0.00260442, 2.08165e-12)
+shape = SubResource("SphereShape3D_i708l")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sspt0")
+}
+autoplay = "idle"
