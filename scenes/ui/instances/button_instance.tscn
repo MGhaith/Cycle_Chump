@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://nt2irp1b4oxh" path="res://assets/ui/button_images/button_2.png" id="3_y50ys"]
 [ext_resource type="Script" path="res://scripts/ui/instances/button.gd" id="4_h28hr"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="6_1x2fi"]
-[ext_resource type="AudioStream" uid="uid://dpt1mp5xbv3o" path="res://assets/sounds/hover_sound.ogg" id="6_uqfvf"]
-[ext_resource type="AudioStream" uid="uid://dlhl7lbyl7yh8" path="res://assets/sounds/click_sound.ogg" id="7_7ew1h"]
+[ext_resource type="AudioStream" uid="uid://dpt1mp5xbv3o" path="res://assets/sounds/sfx/hover_sound.ogg" id="6_uqfvf"]
+[ext_resource type="AudioStream" uid="uid://dlhl7lbyl7yh8" path="res://assets/sounds/sfx/click_sound.ogg" id="7_7ew1h"]
 
 [node name="Button" type="TextureButton"]
 texture_filter = 1

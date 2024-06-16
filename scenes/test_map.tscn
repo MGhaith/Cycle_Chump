@@ -34,10 +34,3 @@ shape = SubResource("BoxShape3D_us5oj")
 
 [node name="PlayerBike" parent="." instance=ExtResource("2_s5jr4")]
 mass = 20.0
-steer_angle = 45.0
-bike_normal_speed = 25.0
-bike_max_speed = 45.0
-current_stamina = 100.0
-stamina_gain_per_banana = 10
-max_stamina_remover = 5.0
-min_stamina_remover = 2.0

@@ -3,6 +3,8 @@ extends VehicleBody3D
 @onready var AnimationController = $BicycleMesh/AnimationPlayer
 @onready var stamina_timer = $StaminaTimer
 @onready var visible_on_screen_enabler_3d = $VisibleOnScreenEnabler3D
+@onready var ring_sound = $RingSound
+
 
 @export_category("Bike Properties")
 @export var camara_world : Camera3D
@@ -12,6 +14,7 @@ extends VehicleBody3D
 @export var body_mesh : MeshInstance3D
 @export var front_wheel : VehicleWheel3D
 @export var rear_wheel : VehicleWheel3D
+
 
 #_________
 
@@ -64,6 +67,10 @@ func _process(_delta):
 func _physics_process(delta):
 	# gets the input axis (positive, negative)
 	var input_dir = Input.get_axis("right", "left")
+	
+	var mesh_rot = -25
+	var target_mesh_rot = input_dir * mesh_rot
+	body_mesh.rotation_degrees.y = lerp(body_mesh.rotation_degrees.y, target_mesh_rot, steer_speed * delta)
 	
 	# a function that helps change the speed
 	if Input.is_action_pressed("sprint"):
@@ -131,6 +138,9 @@ func _banana_area_entered(area_rid, area, area_shape_index, local_shape_index):
 
 
 func _input(event):
+	if event.is_action_pressed("ring"):
+		ring_sound.play()
+	
 	if event.is_action_pressed("space") and !is_bike_flipping:
 		is_bike_flipping = true
 		var tween = get_tree().create_tween()
