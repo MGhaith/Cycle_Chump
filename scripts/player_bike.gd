@@ -79,7 +79,6 @@ func _physics_process(delta):
 	
 	var target_rotation = input_dir * steer_angle
 	front_wheel_mesh.rotation_degrees.y = lerp(front_wheel_mesh.rotation_degrees.y, target_rotation, steer_speed * delta)
-	body_mesh.rotation_degrees.y = lerp(body_mesh.rotation_degrees.y tet_rotation)
 
 func _integrate_forces(state):
 	

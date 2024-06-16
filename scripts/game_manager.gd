@@ -1,10 +1,15 @@
 extends Node
 class_name GameManager
 
+@export_category("GUI Nodes")
 @export var points_node: Node
 @export var score_value_ui: Label
 @export var highest_score_ui: Label
 @export var points_left_ui: Label
+@export var stamina_var : ProgressBar
+
+@export_category("Game Nodes")
+@export var player : VehicleBody3D
 
 var player_score: int = 0
 var player_highest_score: int = 0
@@ -38,7 +43,7 @@ func change_score(value : int):
 	update_hud()
 
 func update_hud():
-	
+	stamina_var.value = player.current_stamina
 	score_value_ui.text = str(player_score)
 	points_left_ui.text = str(points_left)
 	highest_score_ui.text = str(player_highest_score)
