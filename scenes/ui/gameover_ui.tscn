@@ -24,7 +24,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Padding/InsidePadding/VContainer/VBoxContainer/Label:modulate")
+tracks/0/path = NodePath("Padding/InsidePadding/VContainer/HintLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,15 +36,16 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_1fp04"]
 resource_name = "restart"
+length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Padding/InsidePadding/VContainer/VBoxContainer/Label:modulate")
+tracks/0/path = NodePath("Padding/InsidePadding/VContainer/HintLabel:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1.5),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -70,8 +71,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_f8a3y")
-score_ui = NodePath("Padding/InsidePadding/VContainer/VBoxContainer/ContainerStats/Score")
-best_score_ui = NodePath("Padding/InsidePadding/VContainer/VBoxContainer/ContainerStats/BestScore")
+score_ui = NodePath("Padding/InsidePadding/VContainer/ContainerStats/Score")
+best_score_ui = NodePath("Padding/InsidePadding/VContainer/ContainerStats/BestScore")
 
 [node name="Padding" type="MarginContainer" parent="Canvas"]
 layout_mode = 1
@@ -104,6 +105,7 @@ alignment = 1
 [node name="Title" type="Label" parent="Canvas/Padding/InsidePadding/VContainer"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
 theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
 theme_override_constants/shadow_offset_y = 4
@@ -116,17 +118,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="ContainerStats" type="VBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer"]
+[node name="ContainerStats" type="VBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Score" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/ContainerStats"]
+[node name="Score" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/ContainerStats"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
 theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
 theme_override_constants/shadow_offset_y = 4
@@ -137,10 +136,12 @@ theme_override_font_sizes/font_size = 24
 text = "Score : 000"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
-[node name="BestScore" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/ContainerStats"]
+[node name="BestScore" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/ContainerStats"]
 texture_filter = 1
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
 theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
 theme_override_constants/shadow_offset_y = 4
@@ -151,17 +152,25 @@ theme_override_font_sizes/font_size = 24
 text = "Best Score : 000"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
-[node name="Label" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer"]
+[node name="HintLabel" type="Label" parent="Canvas/Padding/InsidePadding/VContainer"]
 layout_mode = 2
 theme = ExtResource("5_8yx3s")
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_st21u")
 text = "Press Space 
 to play again"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/Label"]
-root_node = NodePath("../../../../../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Canvas/Padding/InsidePadding/VContainer/HintLabel"]
+root_node = NodePath("../../../../..")
 libraries = {
 "": SubResource("AnimationLibrary_kolo3")
 }

@@ -15,13 +15,9 @@ main_menu_scene = ExtResource("3_hgmq1")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_c6wv1")]
 
-[node name="Menu" parent="." instance=ExtResource("3_hgmq1")]
-
 [node name="Transition" parent="." instance=ExtResource("4_8i5hs")]
 layer = 100
 
 [node name="WinMenu" parent="." instance=ExtResource("6_5ge5a")]
 
 [node name="GameInstances" type="Node" parent="."]
-
-[connection signal="play_transition" from="Menu" to="." method="game_transition"]

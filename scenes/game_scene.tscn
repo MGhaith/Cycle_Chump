@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=25 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="Script" path="res://scripts/level_script.gd" id="1_27e5q"]
 [ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="2_rxs26"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://km2dygplu1hh" path="res://prefabs/road_block.tscn" id="5_atxop"]
 [ext_resource type="PackedScene" uid="uid://c0dnfjxo4s6sn" path="res://addons/kaykit_city_builder_bits/Assets/gltf/bush.gltf" id="6_43c30"]
 [ext_resource type="PackedScene" uid="uid://c5le3ve5kw50j" path="res://prefabs/car_police_1.tscn" id="6_jcog7"]
+[ext_resource type="PackedScene" uid="uid://b4oakddva3l7m" path="res://prefabs/components/banana.tscn" id="6_un8ho"]
 [ext_resource type="PackedScene" uid="uid://dn6pttqt6ocdt" path="res://prefabs/car_taxi_5.tscn" id="7_q0p1k"]
 [ext_resource type="PackedScene" uid="uid://4hc26mod4xjf" path="res://prefabs/car_hatchback_2.tscn" id="8_e8kv1"]
 [ext_resource type="PackedScene" uid="uid://bnhepdhican81" path="res://prefabs/car_stationwagon_4.tscn" id="9_tf33w"]
@@ -771,10 +772,6 @@ game_scene = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -3)
 game_scene = NodePath("../../..")
 
-[node name="PointArea184" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -5)
-game_scene = NodePath("../../..")
-
 [node name="PointArea214" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 1)
 game_scene = NodePath("../../..")
@@ -821,10 +818,6 @@ game_scene = NodePath("../../..")
 
 [node name="PointArea263" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -23)
-game_scene = NodePath("../../..")
-
-[node name="PointArea264" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -25)
 game_scene = NodePath("../../..")
 
 [node name="PointArea228" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
@@ -1303,10 +1296,6 @@ game_scene = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 13)
 game_scene = NodePath("../../..")
 
-[node name="PointArea35" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 13)
-game_scene = NodePath("../../..")
-
 [node name="PointArea161" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 15)
 game_scene = NodePath("../../..")
@@ -1401,10 +1390,6 @@ game_scene = NodePath("../../..")
 
 [node name="PointArea136" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 25)
-game_scene = NodePath("../../..")
-
-[node name="PointArea137" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 25)
 game_scene = NodePath("../../..")
 
 [node name="PointArea138" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
@@ -1607,10 +1592,6 @@ game_scene = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 29)
 game_scene = NodePath("../../..")
 
-[node name="PointArea83" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 31)
-game_scene = NodePath("../../..")
-
 [node name="PointArea84" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 13)
 game_scene = NodePath("../../..")
@@ -1725,10 +1706,6 @@ game_scene = NodePath("../../..")
 
 [node name="PointArea312" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -25)
-game_scene = NodePath("../../..")
-
-[node name="PointArea299" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -17)
 game_scene = NodePath("../../..")
 
 [node name="PointArea300" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
@@ -1986,6 +1963,27 @@ game_scene = NodePath("../../..")
 [node name="PointArea326" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -19)
 game_scene = NodePath("../../..")
+
+[node name="bananas" type="Node3D" parent="environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022717, 0, 0)
+
+[node name="Banana" parent="environment/bananas" instance=ExtResource("6_un8ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, -17)
+
+[node name="Banana2" parent="environment/bananas" instance=ExtResource("6_un8ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, -25)
+
+[node name="Banana3" parent="environment/bananas" instance=ExtResource("6_un8ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2, -5)
+
+[node name="Banana4" parent="environment/bananas" instance=ExtResource("6_un8ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, 13)
+
+[node name="Banana5" parent="environment/bananas" instance=ExtResource("6_un8ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 2, 31)
+
+[node name="Banana6" parent="environment/bananas" instance=ExtResource("6_un8ho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2, 25)
 
 [node name="lights" type="Node3D" parent="environment"]
 
@@ -2663,10 +2661,9 @@ game_scene = NodePath("../..")
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
 game_scene = NodePath("../..")
 
-[node name="PlayerBike" parent="." node_paths=PackedStringArray("game_scene", "camara_world") groups=["player"] instance=ExtResource("11_25f8o")]
-transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -20.8201, 0.62337, 7)
+[node name="PlayerBike" parent="." node_paths=PackedStringArray("game_scene") groups=["player"] instance=ExtResource("11_25f8o")]
+transform = Transform3D(0.146515, 2.9392e-16, 0.989208, 3.48787e-16, 1, -3.48787e-16, -0.989208, 3.96125e-16, 0.146515, -20.8201, 0.62337, 7)
 game_scene = NodePath("..")
-camara_world = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
