@@ -64,10 +64,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 23.0
-offset_top = 58.0
-offset_right = -479.0
-offset_bottom = -63.0
+offset_left = -33.0
+offset_top = 38.0
+offset_right = -23.0
+offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -96,8 +96,8 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 48
-text = "Unnamed Game
-About Cycling :V"
+text = "A Game About 
+Cycling :V"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -123,7 +123,7 @@ text = "Controls"
 [node name="Exit" parent="Canvas/Padding/HContainer/VContainer/VButtonContainer" instance=ExtResource("4_irld1")]
 custom_minimum_size = Vector2(288, 88)
 layout_mode = 2
-text = "Exits"
+text = "Exit"
 
 [node name="CreditsPanel" type="Panel" parent="Canvas/Padding/HContainer"]
 layout_mode = 2
@@ -153,23 +153,36 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 32
 text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Title2" type="RichTextLabel" parent="Canvas/Padding/HContainer/CreditsPanel/Pading/VContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(428, 280)
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("3_jtsvb")
-text = "The game was inspire by Pac-Man.
+bbcode_enabled = true
+text = "[center]A Pac-Man inspired cycling game made for Monkey Jam 2024 .
 
-Developers:
+Developed by :
+@MarRocky
 @BQKdev
-@MarRocky
 
-Leader:
-@MarRocky
+PS: This prototype contains assets that belong to the Public Domain (LICENSE CC-0)
 
-This game was created by a team of 4, Hope you like it CDawg!
+Huge Thanks :
+
+3D Models
+@Kay Lousberg | KayKit
+@KenneyNL
+
+Music
+@Abstraction Music
+[/center]
+
+
+
 "
 
 [node name="ControlsMenu" type="CanvasLayer" parent="."]
