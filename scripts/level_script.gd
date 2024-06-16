@@ -24,10 +24,9 @@ func _ready():
 	pause_game = true
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("escape"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.open_ui()
-		sound_manager.pause_bgm()
 		get_tree().paused = true
 
 func change_score(value : int):

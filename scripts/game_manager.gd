@@ -50,11 +50,17 @@ func _on_game_won():
 func _reload_game():
 	var menu_scene_int = menu_scene.instantiate()
 	var main_menu_scene_int = main_menu_scene.instantiate()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	transition.transition_in()
 	await get_tree().create_timer(0.8).timeout
-	game_instances.get_child(0).queue_free()
+	
+	for scene in self.get_children():
+		if scene != transition:
+			scene.queue_free()
+	
 	add_child(main_menu_scene_int)
 	add_child(menu_scene_int)
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	transition.transition_out()
 	await get_tree().create_timer(0.8).timeout
