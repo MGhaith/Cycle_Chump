@@ -113,19 +113,16 @@ alignment = 1
 [node name="Play" parent="Canvas/Padding/HContainer/VContainer/VButtonContainer" instance=ExtResource("4_irld1")]
 custom_minimum_size = Vector2(288, 88)
 layout_mode = 2
-stretch_mode = 0
 text = "Play"
 
 [node name="Controls" parent="Canvas/Padding/HContainer/VContainer/VButtonContainer" instance=ExtResource("4_irld1")]
 custom_minimum_size = Vector2(288, 88)
 layout_mode = 2
-stretch_mode = 0
 text = "Controls"
 
 [node name="Exit" parent="Canvas/Padding/HContainer/VContainer/VButtonContainer" instance=ExtResource("4_irld1")]
 custom_minimum_size = Vector2(288, 88)
 layout_mode = 2
-stretch_mode = 0
 text = "Exits"
 
 [node name="CreditsPanel" type="Panel" parent="Canvas/Padding/HContainer"]
@@ -174,7 +171,6 @@ Leader:
 
 This game was created by a team of 4, Hope you like it CDawg!
 "
-
 
 [node name="ControlsMenu" type="CanvasLayer" parent="."]
 visible = false

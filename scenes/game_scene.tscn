@@ -2183,4 +2183,3 @@ value = 50.0
 [node name="PauseMenu" parent="." instance=ExtResource("16_gqd3r")]
 process_mode = 3
 
-[node name="GameOver" parent="." instance=ExtResource("17_wdi3i")]
