@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cor10csgxhna1"]
+[gd_scene load_steps=11 format=3 uid="uid://cor10csgxhna1"]
 
 [ext_resource type="Texture2D" uid="uid://c731x230a4qwb" path="res://assets/3d/cone/Textures/colormap.png" id="1_o6wql"]
 [ext_resource type="Script" path="res://scripts/points_script.gd" id="1_sxban"]
+[ext_resource type="AudioStream" uid="uid://bblseqvcenxqa" path="res://assets/sounds/sfx/point_pickup.wav" id="3_uqxip"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh1ts"]
 resource_name = "colormap"
@@ -109,8 +110,9 @@ _data = {
 "point_anim": SubResource("Animation_b5fgg")
 }
 
-[node name="PointArea" type="Area3D"]
+[node name="PointArea" type="Area3D" node_paths=PackedStringArray("pickup_player")]
 script = ExtResource("1_sxban")
+pickup_player = NodePath("pick_player")
 
 [node name="cone" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 0, 0.5, 0)
@@ -126,3 +128,8 @@ libraries = {
 "": SubResource("AnimationLibrary_68gfb")
 }
 autoplay = "point_anim"
+
+[node name="pick_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uqxip")
+
+[connection signal="finished" from="pick_player" to="." method="_on_pick_player_finished"]
