@@ -2,13 +2,13 @@ extends VehicleBody3D
 
 @onready var AnimationController = $BicycleMesh/AnimationPlayer
 @onready var stamina_timer = $StaminaTimer
+@onready var stamina_gain_timer = $StaminaGainTimer
 @onready var visible_on_screen_enabler_3d = $VisibleOnScreenEnabler3D
 @onready var ring_sound = $RingSound
 
-@export var game_scene: Node3D
 
 @export_category("Bike Properties")
-@export var camara_world : Camera3D
+@export var game_scene: Node3D
 
 @export_category("Bike Mesh")
 @export var front_wheel_mesh : MeshInstance3D
@@ -26,13 +26,14 @@ extends VehicleBody3D
 
 @export_category("Bike Speeds Mesure In Kilometres")
 @export var bike_normal_speed = 25.0
-@export var bike_max_speed = 45.0
+@export var bike_max_speed = 65.0
 
-#_________
+#_________$StaminaTimer
 
 @export_category("Stamina System")
 @export var current_stamina = 100.0
 @export var stamina_gain_per_banana = 10
+@export var stamina_gain_per_break = 1
 
 ## This max stamina remover helps when the player is using the bike full speed
 @export var max_stamina_remover = 2.0
@@ -44,18 +45,12 @@ var bike_current_speed = bike_normal_speed
 
 var is_on_ground = false
 var is_steering_lean = false
-
 var is_bike_flipping = false
-
 var can_move: bool = true
+var bike_break = false
+var current_dir = "right"
 
 func _ready():
-	if not camara_world:
-		printerr("Player needs a camara to work, assign the camara on player bike properties")
-	else:
-		visible_on_screen_enabler_3d.screen_exited.connect(Callable(camara_world, "_on_player_screen_exited"))
-		visible_on_screen_enabler_3d.screen_entered.connect(Callable(camara_world, "_on_player_screen_entered"))
-	
 	game_scene.update_stamina(current_stamina)
 
 func _stamina_timer():
@@ -66,12 +61,25 @@ func _stamina_timer():
 			current_stamina -= min_stamina_remover
 	else:
 		current_stamina += 5
-		game_scene.update_stamina_label("(Resting)")
+		game_scene.update_stamina_label(" (Resting)")
 	
 	if game_scene != null:
 		game_scene.update_stamina(current_stamina)
 
 func _process(_delta):
+	if Input.is_action_pressed("space"):
+		AnimationController.stop()
+		stamina_timer.stop()
+		can_move = false
+		stamina_timer.wait_time = 0.2
+		stamina_timer.start()
+	else:
+		AnimationController.play()
+		stamina_timer.stop()
+		can_move = true
+		stamina_timer.wait_time = 3.0
+		stamina_timer.start()
+	
 	if current_stamina <= 0.0:
 		AnimationController.stop()
 		current_stamina = 0.1
@@ -79,7 +87,7 @@ func _process(_delta):
 		can_move = false
 		stamina_timer.wait_time = 0.2
 		stamina_timer.start()
-	elif  current_stamina >= 100.0:
+	elif current_stamina >= 100.0:
 		AnimationController.play()
 		stamina_timer.stop()
 		current_stamina = 99.9
@@ -89,35 +97,72 @@ func _process(_delta):
 
 func _physics_process(delta):
 	if can_move:
-		# gets the input axis (positive, negative)
-		var input_dir = Input.get_axis("right", "left")
 		
-		var mesh_rot = -25
-		var target_mesh_rot = input_dir * mesh_rot
-		body_mesh.rotation_degrees.y = lerp(body_mesh.rotation_degrees.y, target_mesh_rot, steer_speed * delta)
 		
-		# a function that helps change the speed
+		if bike_break: return
+		engine_force = bike_current_speed
+		print(current_dir, ' ' ,rotation_degrees.y)
+		
+		
+		
+		if current_dir == "up":
+			if Input.is_action_pressed("up"):
+				rotation_degrees.y = 180
+			
+			elif Input.is_action_pressed("left"):
+				rotation_degrees.y = -90
+				current_dir = "left"
+			elif Input.is_action_pressed("ui_right"):
+				rotation_degrees.y = 90
+				current_dir = "right"
+		
+		elif current_dir == "down":
+			if Input.is_action_pressed("down"):
+				rotation_degrees.y = 0
+			
+			elif Input.is_action_pressed("left"):
+				rotation_degrees.y = -90
+				current_dir = "left"
+			elif Input.is_action_pressed("right"):
+				rotation_degrees.y = 90
+				current_dir = "right"
+		
+		elif current_dir == "left":
+			if Input.is_action_pressed("left"):
+				rotation_degrees.y = -90
+			
+			elif Input.is_action_pressed("up"):
+				rotation_degrees.y = 180
+				current_dir = "up"
+			elif Input.is_action_pressed("down"):
+				rotation_degrees.y = 0
+				current_dir = "down"
+		
+		elif current_dir == "right":
+			if Input.is_action_pressed("right"):
+				rotation_degrees.y = 90
+			
+			elif Input.is_action_pressed("up"):
+				rotation_degrees.y = 180
+				current_dir = "up"
+			elif Input.is_action_pressed("down"):
+				rotation_degrees.y = 0
+				current_dir = "down"
+		
+		# Adjust speed based on input
 		if Input.is_action_pressed("sprint"):
 			bike_current_speed = bike_max_speed
 			game_scene.update_stamina_label(" (Sprinting x2)")
 		else:
 			bike_current_speed = bike_normal_speed
 			game_scene.update_stamina_label("")
-		
-		
-		engine_force = bike_current_speed
+		# Update animation speed
 		AnimationController.speed_scale = engine_force / bike_current_speed + delta
-
-		steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
-		
-		var target_rotation = input_dir * steer_angle
-		front_wheel_mesh.rotation_degrees.y = lerp(front_wheel_mesh.rotation_degrees.y, target_rotation, steer_speed * delta)
-	
+		# Reset linear velocity if the bike can't move
 	else:
 		linear_velocity = lerp(linear_velocity, Vector3.ZERO, 2)
 
 func _integrate_forces(state):
-	
 	if front_wheel.is_in_contact() or rear_wheel.is_in_contact():
 		is_on_ground = true
 	else:
@@ -125,7 +170,6 @@ func _integrate_forces(state):
 	
 	var current_velocity = state.transform.basis.inverse() * linear_velocity
 	var negative_vel = current_velocity.z
-	
 	
 	if negative_vel >= 15:
 		is_steering_lean = true
@@ -148,35 +192,20 @@ func _banana_area_entered(_area_rid, area, _area_shape_index, _local_shape_index
 	if area.is_in_group("banana"):
 		print("Gain stamina")
 		var banana_children = area.get_children()
-
 		# Play the animations "picked" from the banana before queue_freeing
 		for child in banana_children:
 			if child is AnimationPlayer:
 				var banana_animations : AnimationPlayer = child
 				banana_animations.play("picked")
-
 		var preview_stamina = current_stamina + stamina_gain_per_banana
 	
 		if preview_stamina > 100:
 			current_stamina = 100
 		else:
 			current_stamina += stamina_gain_per_banana
-
 		await get_tree().create_timer(1).timeout
 		area.queue_free()
-
 
 func _input(event):
 	if event.is_action_pressed("ring"):
 		ring_sound.play()
-	
-	if event.is_action_pressed("space") and !is_bike_flipping:
-		is_bike_flipping = true
-		var tween = get_tree().create_tween()
-		engine_force = 0
-		tween.tween_property(self, "position", Vector3(position.x, position.y + 0.5, position.z), 0.5)
-		tween.tween_property(self, "rotation_degrees:y", rotation_degrees.y + 180, 0.5)
-		engine_force = 10
-		tween.play()
-		await get_tree().create_timer(2).timeout
-		is_bike_flipping = false

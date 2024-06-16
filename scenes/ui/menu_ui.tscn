@@ -186,7 +186,7 @@ Music
 "
 
 [node name="ControlsMenu" type="CanvasLayer" parent="."]
-visible = false
+layer = 2
 offset = Vector2(2.08165e-12, -1000)
 transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
 script = ExtResource("1_3bvb7")
@@ -282,7 +282,7 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 9
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 16
-text = "Left : "
+text = "Rotate Up : "
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -311,7 +311,7 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 9
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 16
-text = "A"
+text = "W"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -326,7 +326,7 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 9
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 16
-text = "Right : "
+text = "Rotare Down : "
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -339,6 +339,99 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
 
 [node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control/ControlBackground2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Control2" type="HBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TextCotrol" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Rotate Left : "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ControlBackground" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control2"]
+custom_minimum_size = Vector2(48, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control2/ControlBackground"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextCotrol2" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Rotare Right : "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ControlBackground2" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control2"]
+custom_minimum_size = Vector2(48, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control2/ControlBackground2"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -423,7 +516,56 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 9
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 16
-text = "Shift"
+text = "SHIFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Control4" type="HBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TextCotrol" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control4"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Stop Pedaling"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="ControlBackground" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control4"]
+custom_minimum_size = Vector2(80, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control4/ControlBackground"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Space"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
@@ -480,65 +622,7 @@ uppercase = true
 [node name="Back" parent="ControlsMenu/Canvas/Padding/InsidePadding" instance=ExtResource("5_nlmid")]
 layout_mode = 2
 
-[node name="CreditsMenu" type="CanvasLayer" parent="."]
-offset = Vector2(2.08165e-12, -1000)
-transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
-
-[node name="Canvas" type="Control" parent="CreditsMenu"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Padding" type="MarginContainer" parent="CreditsMenu/Canvas"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 250
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 250
-theme_override_constants/margin_bottom = 100
-
-[node name="Background" type="Panel" parent="CreditsMenu/Canvas/Padding"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ki21o")
-
-[node name="InsidePadding" type="MarginContainer" parent="CreditsMenu/Canvas/Padding"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 30
-
-[node name="VContainer" type="VBoxContainer" parent="CreditsMenu/Canvas/Padding/InsidePadding"]
-layout_mode = 2
-theme_override_constants/separation = 32
-
-[node name="Title" type="Label" parent="CreditsMenu/Canvas/Padding/InsidePadding/VContainer"]
-texture_filter = 1
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
-theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 16
-theme_override_constants/shadow_outline_size = 9
-theme_override_fonts/font = ExtResource("3_jtsvb")
-theme_override_font_sizes/font_size = 32
-text = "Credits"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
-[node name="Back" parent="CreditsMenu/Canvas/Padding/InsidePadding" instance=ExtResource("5_nlmid")]
-layout_mode = 2
-
 [connection signal="button_down" from="Canvas/Padding/HContainer/VContainer/VButtonContainer/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="Canvas/Padding/HContainer/VContainer/VButtonContainer/Controls" to="." method="_on_controls_button_down"]
 [connection signal="button_down" from="Canvas/Padding/HContainer/VContainer/VButtonContainer/Exit" to="." method="_on_exit_button_down"]
 [connection signal="button_down" from="ControlsMenu/Canvas/Padding/InsidePadding/Back" to="ControlsMenu" method="close_ui"]
-[connection signal="button_down" from="CreditsMenu/Canvas/Padding/InsidePadding/Back" to="ControlsMenu" method="close_ui"]

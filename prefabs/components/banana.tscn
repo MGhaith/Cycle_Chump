@@ -91,7 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.5708, -6.66422e-31, 0)]
+"values": [Vector3(0.698132, 3.48787e-16, 3.48787e-16)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -132,7 +132,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.5708, -6.66422e-31, 0), Vector3(1.5708, 1.5708, 3.48787e-16), Vector3(1.5708, 3.14159, 3.48787e-16), Vector3(1.5708, 4.71239, 3.48787e-16), Vector3(1.5708, 6.28319, 3.48787e-16)]
+"values": [Vector3(3.48787e-16, 3.48787e-16, 3.48787e-16), Vector3(3.48787e-16, 1.5708, 3.48787e-16), Vector3(3.48787e-16, 3.14159, 3.48787e-16), Vector3(3.48787e-16, 4.71239, 3.48787e-16), Vector3(3.48787e-16, 6.28319, 3.48787e-16)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -141,10 +141,10 @@ tracks/2/path = NodePath("BananaMesh:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(1, 1, 1), Vector3(0.8, 0.8, 0.8)]
 }
 
 [sub_resource type="Animation" id="Animation_hjg5g"]
@@ -172,7 +172,7 @@ _data = {
 [node name="Banana" type="Area3D" groups=["banana"]]
 
 [node name="BananaMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -6.66422e-31, 2.41244e-36, 0, -3.61999e-06, -1, 6.66422e-31, 1, -3.61999e-06, 0, 0, 0)
+transform = Transform3D(1, -1.24591e-16, 2.67186e-16, 2.67186e-16, 0.766044, -0.642788, -1.24591e-16, 0.642788, 0.766044, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ighid")
 skeleton = NodePath("")
 
@@ -186,3 +186,10 @@ libraries = {
 }
 autoplay = "idle"
 playback_default_blend_time = 0.5
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 2.08165e-12, 2.74048, 2.08165e-12)
+light_energy = 5.0
+light_indirect_energy = 15.0
+light_specular = 2.0
+spot_angle = 9.45789
