@@ -16,7 +16,7 @@
 [ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="14_t36t3"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="15_ua4qn"]
 [ext_resource type="PackedScene" uid="uid://r87na5yrq5yu" path="res://scenes/ui/pause_menu_ui.tscn" id="16_gqd3r"]
-[ext_resource type="PackedScene" uid="uid://nt05hvj572w8" path="res://scenes/ui/gameover_ui.tscn" id="17_wdi3i"]
+[ext_resource type="PackedScene" uid="uid://nt05hvj572w8" path="res://scenes/ui/gameover_ui.tscn" id="17_2aujh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -2181,5 +2181,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_eprdc")
 value = 50.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_gqd3r")]
-process_mode = 3
 
+[node name="GameOver" parent="." instance=ExtResource("17_2aujh")]
+
+[editable path="GameOver"]
