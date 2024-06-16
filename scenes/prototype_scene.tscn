@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=23 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="Script" path="res://scripts/level_script.gd" id="1_846dw"]
 [ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://km2dygplu1hh" path="res://prefabs/road_block.tscn" id="7_unrhn"]
 [ext_resource type="PackedScene" uid="uid://j701dsjbkcbp" path="res://prefabs/car_sedan_3.tscn" id="8_brocc"]
 [ext_resource type="PackedScene" uid="uid://cck1vln20n4gi" path="res://scenes/sound_manager.tscn" id="12_gt40o"]
+[ext_resource type="Script" path="res://scripts/camera_world.gd" id="12_sm7ly"]
 [ext_resource type="PackedScene" uid="uid://r87na5yrq5yu" path="res://scenes/ui/pause_menu_ui.tscn" id="15_60j2u"]
 [ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="16_6hehd"]
 [ext_resource type="PackedScene" uid="uid://nt05hvj572w8" path="res://scenes/ui/gameover_ui.tscn" id="16_24tjq"]
@@ -1912,14 +1913,18 @@ transform = Transform3D(-3, 0, 4.52987e-07, 0, 3, 0, -4.52987e-07, 0, -3, 25, 0,
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
 
 [node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("3_4wsir")]
-transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -22.8201, 0.62337, 7)
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -20.8201, 0.62337, 7)
 camara_world = NodePath("../Camera3D")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
 visible = false
+projection = 1
 current = true
 fov = 112.62
+size = 30.0
+script = ExtResource("12_sm7ly")
+player = NodePath("../PlayerBike")
 
 [node name="SoundManager" parent="." instance=ExtResource("12_gt40o")]
 
