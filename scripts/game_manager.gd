@@ -9,14 +9,18 @@ signal level_done
 
 @onready var transition = $Transition
 @onready var main_menu = $MainMenu
-@onready var menu = $Menu
 
 var player_highest_score: int = 0
 var player_score: int = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
+	
+	# creates the menu
+	var main_menu_scene_int = main_menu_scene.instantiate()
+	add_child(main_menu_scene_int)
+	main_menu_scene_int.play_transition.connect(game_transition)
+	
 func game_transition():
 	var game_scene_int = game_scene.instantiate()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -62,6 +66,9 @@ func _reload_game():
 	
 	add_child(main_menu_scene_int)
 	add_child(menu_scene_int)
+	
+	#this helps connect the play button to game transition
+	main_menu_scene_int.play_transition.connect(game_transition)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
