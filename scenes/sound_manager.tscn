@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cck1vln20n4gi"]
+[gd_scene load_steps=5 format=3 uid="uid://cck1vln20n4gi"]
 
 [ext_resource type="Script" path="res://scripts/sound_manager.gd" id="1_lbpnu"]
 [ext_resource type="AudioStream" uid="uid://bblseqvcenxqa" path="res://assets/sounds/sfx/point_pickup.wav" id="2_i7s0p"]
 [ext_resource type="AudioStream" uid="uid://c5o0gihhenru3" path="res://assets/sounds/bgm/Stream Loops 2024-05-22.ogg" id="3_tbt4l"]
+[ext_resource type="AudioStream" uid="uid://dm8ghweerqvv7" path="res://assets/sounds/sfx/siren.wav" id="4_pjpv8"]
 
-[node name="SoundManager" type="Node" node_paths=PackedStringArray("pick_player")]
+[node name="SoundManager" type="Node" node_paths=PackedStringArray("pick_player", "bgm_player", "siren_player")]
 script = ExtResource("1_lbpnu")
 pick_player = NodePath("pick_player")
+bgm_player = NodePath("bgm_player")
+siren_player = NodePath("siren_player")
 
 [node name="pick_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_i7s0p")
@@ -14,3 +17,8 @@ stream = ExtResource("2_i7s0p")
 [node name="bgm_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tbt4l")
 autoplay = true
+
+[node name="siren_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pjpv8")
+
+[connection signal="finished" from="siren_player" to="." method="_on_siren_player_finished"]

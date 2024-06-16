@@ -70,7 +70,7 @@ corner_radius_bottom_left = 4
 corner_detail = 3
 anti_aliasing = false
 
-[node name="GameScene" type="Node3D" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui", "points_node", "sound_manager", "stamina_var", "pause_menu", "player")]
+[node name="GameScene" type="Node3D" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui", "points_node", "sound_manager", "stamina_var", "pause_menu", "game_over_menu", "player")]
 script = ExtResource("1_27e5q")
 score_value_ui = NodePath("GameHUD/Control/CurrentScore/ScoreValue")
 highest_score_ui = NodePath("GameHUD/Control/HighestScore/HScoreValue")
@@ -79,9 +79,10 @@ points_node = NodePath("environment/points")
 sound_manager = NodePath("SoundManager")
 stamina_var = NodePath("GameHUD/Control2/ProgressBar")
 pause_menu = NodePath("PauseMenu")
+game_over_menu = NodePath("GameOver")
 player = NodePath("PlayerBike")
 
-[node name="environment" type="Node" parent="."]
+[node name="environment" type="Node3D" parent="."]
 
 [node name="GridMap" type="GridMap" parent="environment"]
 mesh_library = ExtResource("2_rxs26")
@@ -97,7 +98,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_jba31")
 
-[node name="buildings" type="Node" parent="environment"]
+[node name="buildings" type="Node3D" parent="environment"]
 
 [node name="collisions" type="StaticBody3D" parent="environment/buildings"]
 
@@ -157,7 +158,7 @@ polygon = PackedVector2Array(0, 0, 10, 0, 10, 4, 4, 4, 4, 10, 0, 10)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -33, 0, 32)
 polygon = PackedVector2Array(0, 0, 66, 0, 66, 4, 0, 4)
 
-[node name="turns" type="Node" parent="environment"]
+[node name="turns" type="Node3D" parent="environment"]
 
 [node name="1" parent="environment/turns" node_paths=PackedStringArray("node_up", "node_down", "node_right", "node_left") instance=ExtResource("3_qxo82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.1, 7)
@@ -573,7 +574,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 13)
 node_down = NodePath("../59")
 node_left = NodePath("../61")
 
-[node name="points" type="Node" parent="environment"]
+[node name="points" type="Node3D" parent="environment"]
 
 [node name="PointArea" parent="environment/points" node_paths=PackedStringArray("game_scene") instance=ExtResource("4_40dp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1256, 0, 7.04873)
@@ -1871,12 +1872,12 @@ game_scene = NodePath("../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -19)
 game_scene = NodePath("../../..")
 
-[node name="lights" type="Node" parent="environment"]
+[node name="lights" type="Node3D" parent="environment"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment/lights"]
 transform = Transform3D(1, 0, 0, 0, 0.731913, 0.681398, 0, -0.681398, 0.731913, 0, 1.31225, 0)
 
-[node name="RoadBlocks" type="Node" parent="environment"]
+[node name="RoadBlocks" type="Node3D" parent="environment"]
 
 [node name="RoadBlock" parent="environment/RoadBlocks" instance=ExtResource("5_atxop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7)
@@ -1887,7 +1888,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0,
 [node name="WorldEnvironment" type="WorldEnvironment" parent="environment"]
 environment = SubResource("Environment_e7gva")
 
-[node name="cars" type="Node" parent="."]
+[node name="cars" type="Node3D" parent="."]
 
 [node name="car_police_1" parent="cars" node_paths=PackedStringArray("game_scene") instance=ExtResource("6_jcog7")]
 transform = Transform3D(3.93402e-07, 0, 3, 0, 3, 0, -3, 0, 3.93402e-07, -12, 0, 7)

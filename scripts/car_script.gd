@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var game_scene: Node3D
+@export var impact_player: AudioStreamPlayer
 
 var car_speed: float = .02
 
@@ -10,6 +11,7 @@ func _physics_process(_delta):
 func _on_kill_area_body_entered(body):
 	if body.is_in_group("player"):
 		if game_scene != null:
+			impact_player.play()
 			game_scene.on_player_death()
 		else:
 			push_error("no game_scene on car")

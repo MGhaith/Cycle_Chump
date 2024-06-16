@@ -7,9 +7,11 @@ extends Node3D
 @export var sound_manager: Node
 @export var stamina_var : ProgressBar
 @export var pause_menu : CanvasLayer
+@export var game_over_menu: CanvasLayer
 
 @export_category("Game Nodes")
 @export var player : VehicleBody3D
+
 var points_left: int = 0
 var player_score: int = 0
 var game_manager: GameManager
@@ -46,4 +48,6 @@ func update_hud():
 	#highest_score_ui.text = str(game_manager.player_highest_score)
 	
 func on_player_death() -> void:
-	pass
+	game_over_menu.open_ui()
+	sound_manager.stop_bgm()
+	player.queue_free()

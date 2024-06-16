@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnhepdhican81"]
+[gd_scene load_steps=17 format=3 uid="uid://bnhepdhican81"]
 
 [ext_resource type="Script" path="res://scripts/car_script.gd" id="1_3ekfb"]
 [ext_resource type="Texture2D" uid="uid://cupi301vwquuc" path="res://addons/kaykit_city_builder_bits/Assets/gltf/citybits_texture.png" id="2_wg82o"]
+[ext_resource type="AudioStream" uid="uid://culgv6ab3qbvm" path="res://assets/sounds/sfx/car_impact.wav" id="3_k00xf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fwqi"]
 resource_name = "citybits_texture"
@@ -184,9 +185,10 @@ size = Vector3(0.4, 0.2, 0.9)
 [sub_resource type="SphereShape3D" id="SphereShape3D_b14mw"]
 radius = 0.05
 
-[node name="car_stationwagon2" type="Node3D"]
+[node name="car_stationwagon2" type="Node3D" node_paths=PackedStringArray("impact_player")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_3ekfb")
+impact_player = NodePath("impact_player")
 
 [node name="car_stationwagon" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_2pxrj")
@@ -222,6 +224,10 @@ shape = SubResource("BoxShape3D_ucxyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="turn_area"]
 shape = SubResource("SphereShape3D_b14mw")
+
+[node name="impact_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k00xf")
+volume_db = 3.0
 
 [connection signal="body_entered" from="kill_area" to="." method="_on_kill_area_body_entered"]
 [connection signal="area_entered" from="turn_area" to="." method="_on_turn_area_area_entered"]
