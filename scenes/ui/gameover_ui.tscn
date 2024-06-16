@@ -16,11 +16,13 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+corner_detail = 3
 anti_aliasing = false
 
 [node name="GameOver" type="CanvasLayer"]
 process_mode = 3
-transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 0, 0)
+offset = Vector2(2.08165e-12, -1000)
+transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 2.08165e-12, -1000)
 script = ExtResource("1_itlfm")
 
 [node name="Canvas" type="Control" parent="."]
