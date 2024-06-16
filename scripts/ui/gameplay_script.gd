@@ -15,4 +15,4 @@ func _process(_delta):
 
 func set_scores(player_score, player_highest_score):
 	score_ui.text = "Score : " + str(player_score)
-	best_score_ui.text = "Score : " + str(player_highest_score)
+	best_score_ui.text = "Best Score : " + str(player_highest_score)
