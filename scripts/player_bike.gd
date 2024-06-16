@@ -31,7 +31,7 @@ extends VehicleBody3D
 #_________
 
 @export_category("Stamina System")
-@export var current_stamina = 1.0
+@export var current_stamina = 100.0
 @export var stamina_gain_per_banana = 10
 
 ## This max stamina remover helps when the player is using the bike full speed
