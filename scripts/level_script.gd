@@ -49,11 +49,16 @@ func change_score(value : int):
 	update_hud()
 
 func update_hud():
-	stamina_var.value = player.current_stamina
 	points_left_ui.text = str(points_left)
 	score_value_ui.text = str(game_manager.player_score)
 	highest_score_ui.text = str(game_manager.player_highest_score)
-	
+
+func update_stamina(value):
+	stamina_var.value = value
+
+func update_stamina_label(text):
+	$GameHUD/Control2/Label.text = "Stamina" + text
+
 func on_player_death() -> void:
 	$GameOver/Canvas.can_replay = true
 	$GameOver/Canvas.set_scores(game_manager.player_score, game_manager.player_highest_score)

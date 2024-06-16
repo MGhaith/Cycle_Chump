@@ -2563,8 +2563,9 @@ game_scene = NodePath("../..")
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
 game_scene = NodePath("../..")
 
-[node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("11_25f8o")]
+[node name="PlayerBike" parent="." node_paths=PackedStringArray("game_scene", "camara_world") groups=["player"] instance=ExtResource("11_25f8o")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -20.8201, 0.62337, 7)
+game_scene = NodePath("..")
 camara_world = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
@@ -2806,6 +2807,8 @@ theme_override_constants/shadow_outline_size = 9
 theme_override_fonts/font = ExtResource("15_ua4qn")
 theme_override_font_sizes/font_size = 16
 text = "Stamina"
+horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="ProgressBar" type="ProgressBar" parent="GameHUD/Control2"]
