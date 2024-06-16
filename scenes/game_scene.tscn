@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=22 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="Script" path="res://scripts/level_script.gd" id="1_27e5q"]
 [ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="2_rxs26"]
@@ -16,7 +16,6 @@
 [ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="14_t36t3"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="15_ua4qn"]
 [ext_resource type="PackedScene" uid="uid://r87na5yrq5yu" path="res://scenes/ui/pause_menu_ui.tscn" id="16_gqd3r"]
-[ext_resource type="PackedScene" uid="uid://nt05hvj572w8" path="res://scenes/ui/gameover_ui.tscn" id="17_wdi3i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
@@ -70,7 +69,7 @@ corner_radius_bottom_left = 4
 corner_detail = 3
 anti_aliasing = false
 
-[node name="GameScene" type="Node3D" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui", "points_node", "sound_manager", "stamina_var", "pause_menu", "game_over_menu", "player")]
+[node name="GameScene" type="Node3D" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui", "points_node", "sound_manager", "stamina_var", "pause_menu", "player")]
 script = ExtResource("1_27e5q")
 score_value_ui = NodePath("GameHUD/Control/CurrentScore/ScoreValue")
 highest_score_ui = NodePath("GameHUD/Control/HighestScore/HScoreValue")
@@ -79,10 +78,10 @@ points_node = NodePath("environment/points")
 sound_manager = NodePath("SoundManager")
 stamina_var = NodePath("GameHUD/Control2/ProgressBar")
 pause_menu = NodePath("PauseMenu")
-game_over_menu = NodePath("GameOver")
 player = NodePath("PlayerBike")
 
 [node name="environment" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="GridMap" type="GridMap" parent="environment"]
 mesh_library = ExtResource("2_rxs26")
@@ -1889,6 +1888,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0,
 environment = SubResource("Environment_e7gva")
 
 [node name="cars" type="Node3D" parent="."]
+process_mode = 1
 
 [node name="car_police_1" parent="cars" node_paths=PackedStringArray("game_scene") instance=ExtResource("6_jcog7")]
 transform = Transform3D(3.93402e-07, 0, 3, 0, 3, 0, -3, 0, 3.93402e-07, -12, 0, 7)
@@ -1911,10 +1911,12 @@ transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 
 game_scene = NodePath("../..")
 
 [node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("11_25f8o")]
+process_mode = 1
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -20.8201, 0.62337, 7)
 camara_world = NodePath("../Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
+process_mode = 1
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
 visible = false
 projection = 1
@@ -1925,8 +1927,10 @@ script = ExtResource("12_0px15")
 player = NodePath("../PlayerBike")
 
 [node name="SoundManager" parent="." instance=ExtResource("13_85d40")]
+process_mode = 1
 
 [node name="GameHUD" type="CanvasLayer" parent="."]
+process_mode = 1
 
 [node name="Control" type="Control" parent="GameHUD"]
 layout_mode = 3
@@ -2181,5 +2185,5 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_eprdc")
 value = 50.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_gqd3r")]
-process_mode = 3
-
+offset = Vector2(2.08165e-12, -1000)
+transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)

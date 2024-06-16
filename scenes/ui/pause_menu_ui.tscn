@@ -26,6 +26,7 @@ transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
 script = ExtResource("1_seo3q")
 
 [node name="Canvas" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +36,7 @@ grow_vertical = 2
 script = ExtResource("2_vm2sq")
 
 [node name="Padding" type="MarginContainer" parent="Canvas"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,10 +49,12 @@ theme_override_constants/margin_right = 250
 theme_override_constants/margin_bottom = 100
 
 [node name="Background" type="Panel" parent="Canvas/Padding"]
+process_mode = 3
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3oblv")
 
 [node name="InsidePadding" type="MarginContainer" parent="Canvas/Padding"]
+process_mode = 3
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
@@ -58,11 +62,13 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VContainer" type="VBoxContainer" parent="Canvas/Padding/InsidePadding"]
+process_mode = 3
 layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
 [node name="Title" type="Label" parent="Canvas/Padding/InsidePadding/VContainer"]
+process_mode = 3
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
@@ -78,16 +84,25 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer"]
+process_mode = 3
 layout_mode = 2
 theme_override_constants/separation = -8
 
 [node name="Resume" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer" instance=ExtResource("3_3hhb8")]
+process_mode = 3
 layout_mode = 2
 text = "Resume"
+
+[node name="Restart" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer" instance=ExtResource("3_3hhb8")]
+process_mode = 3
+layout_mode = 2
+text = "Restart"
 
 [node name="MainMenu" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer" instance=ExtResource("3_3hhb8")]
+process_mode = 3
 layout_mode = 2
-text = "Resume"
+text = "Main Menu"
 
 [connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/Resume" to="Canvas" method="_on_resume_button_down"]
+[connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/Restart" to="Canvas" method="_on_restart_button_down"]
 [connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/MainMenu" to="Canvas" method="_on_main_menu_button_down"]
