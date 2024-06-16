@@ -1,4 +1,7 @@
 extends Node3D
+
+signal enable_exits
+
 @export_category("GUI Nodes")
 @export var score_value_ui: Label
 @export var highest_score_ui: Label
@@ -41,7 +44,7 @@ func change_score(value : int):
 	
 	# The level is cleared
 	if points_left == 0:
-		emit_signal("level_done")
+		emit_signal("enable_exits")
 	
 	update_hud()
 
@@ -57,3 +60,6 @@ func on_player_death() -> void:
 	game_over_menu.open_ui()
 	sound_manager.stop_bgm()
 	player.queue_free()
+
+func _on_game_won():
+	game_manager._on_game_won()

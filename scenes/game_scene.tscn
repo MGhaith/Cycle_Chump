@@ -2836,4 +2836,9 @@ value = 50.0
 
 [node name="GameOver" parent="." instance=ExtResource("17_2aujh")]
 
+[connection signal="enable_exits" from="." to="environment/RoadBlocks/RoadBlock" method="enable_win_area"]
+[connection signal="enable_exits" from="." to="environment/RoadBlocks/RoadBlock2" method="enable_win_area"]
+[connection signal="game_won" from="environment/RoadBlocks/RoadBlock" to="." method="_on_game_won"]
+[connection signal="game_won" from="environment/RoadBlocks/RoadBlock2" to="." method="_on_game_won"]
+
 [editable path="GameOver"]
