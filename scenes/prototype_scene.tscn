@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnx1q24o123vw"]
+[gd_scene load_steps=19 format=3 uid="uid://bnx1q24o123vw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dyolf5peaapfp" path="res://prefabs/roads_meshlibrary.tres" id="1_g7315"]
 [ext_resource type="PackedScene" uid="uid://cor10csgxhna1" path="res://prefabs/point.tscn" id="2_qy2bi"]
@@ -14,9 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://km2dygplu1hh" path="res://prefabs/road_block.tscn" id="7_unrhn"]
 [ext_resource type="PackedScene" uid="uid://j701dsjbkcbp" path="res://prefabs/car_sedan_3.tscn" id="8_brocc"]
 [ext_resource type="PackedScene" uid="uid://dsx162hje5d52" path="res://addons/kaykit_city_builder_bits/Assets/gltf/dumpster.gltf" id="13_fbh8y"]
+[ext_resource type="Script" path="res://scripts/camera_world.gd" id="14_tmq3y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jba31"]
 size = Vector3(13.5, 0.1, 13.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gpf6r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47nbp"]
+size = Vector3(70, 0.1, 70)
 
 [node name="GameScene" type="Node3D"]
 
@@ -1517,6 +1523,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 7)
 [node name="RoadBlock2" parent="environment/RoadBlocks" instance=ExtResource("7_unrhn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24, 0, 1)
 
+[node name="WorldFloor" type="StaticBody3D" parent="environment"]
+physics_material_override = SubResource("PhysicsMaterial_gpf6r")
+
+[node name="CollisionFloor" type="CollisionShape3D" parent="environment/WorldFloor"]
+shape = SubResource("BoxShape3D_47nbp")
+
 [node name="cars" type="Node" parent="."]
 
 [node name="car_police_1" parent="cars" instance=ExtResource("4_u5hvt")]
@@ -1535,13 +1547,16 @@ transform = Transform3D(-3, 0, 4.52987e-07, 0, 3, 0, -4.52987e-07, 0, -3, 25, 0,
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 19)
 
 [node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("3_4wsir")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -23, 0.55, 7)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -27.0803, 0.835062, 7)
 camara_world = NodePath("../Camera3D")
+bike_normal_speed = 20.0
+bike_max_speed = 30.0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)
-visible = false
 current = true
+script = ExtResource("14_tmq3y")
+player = NodePath("../PlayerBike")
 
 [node name="dumpster2" parent="." instance=ExtResource("13_fbh8y")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -19.3765, 0.136287, 5.24969)

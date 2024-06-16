@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdh4uow1q38mp"]
+
+[ext_resource type="Texture2D" uid="uid://bfrr2j8c0mokn" path="res://assets/ui/button_images/button_1.png" id="1_spwok"]
+[ext_resource type="Texture2D" uid="uid://d1cbiqyxvjlqp" path="res://assets/ui/button_images/button_3.png" id="2_ed0ck"]
+[ext_resource type="Texture2D" uid="uid://nt2irp1b4oxh" path="res://assets/ui/button_images/button_2.png" id="3_y50ys"]
+[ext_resource type="Script" path="res://scripts/ui/instances/button.gd" id="4_h28hr"]
+[ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="6_1x2fi"]
+
+[node name="Button" type="TextureButton"]
+texture_filter = 1
+custom_minimum_size = Vector2(2.08165e-12, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+texture_normal = ExtResource("1_spwok")
+texture_pressed = ExtResource("2_ed0ck")
+texture_hover = ExtResource("3_y50ys")
+texture_disabled = ExtResource("3_y50ys")
+texture_focused = ExtResource("2_ed0ck")
+stretch_mode = 5
+script = ExtResource("4_h28hr")
+
+[node name="Text" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2.08165e-12, -8)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_1x2fi")
+theme_override_font_sizes/font_size = 16
+text = "Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
