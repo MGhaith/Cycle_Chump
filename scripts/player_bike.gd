@@ -21,8 +21,8 @@ extends VehicleBody3D
 #_________
 
 @export_category("Bike Speeds Mesure In Kilometres")
-@export var bike_normal_speed = 15.0
-@export var bike_max_speed = 25.0
+@export var bike_normal_speed = 25.0
+@export var bike_max_speed = 35.0
 
 #_________
 
