@@ -1853,7 +1853,7 @@ environment = SubResource("Environment_e7gva")
 [node name="cars" type="Node" parent="."]
 
 [node name="car_police_1" parent="cars" instance=ExtResource("4_u5hvt")]
-transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -12, 0, 7)
+transform = Transform3D(3.93402e-07, 0, 3, 0, 3, 0, -3, 0, 3.93402e-07, -12, 0, 7)
 
 [node name="car_taxi2" parent="cars" instance=ExtResource("5_6arsf")]
 transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, 0, -5)
@@ -1880,7 +1880,6 @@ fov = 112.62
 [node name="SoundManager" parent="." instance=ExtResource("12_gt40o")]
 
 [node name="GameHUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="GameHUD"]
 layout_mode = 3

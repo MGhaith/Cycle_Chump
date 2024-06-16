@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bg2wouy1rj5aj"]
+
+[ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="1_i23sn"]
+[ext_resource type="Texture2D" uid="uid://d1cbiqyxvjlqp" path="res://assets/ui/button_images/button_3.png" id="2_6qm7r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3oehb"]
+texture = ExtResource("2_6qm7r")
+region_rect = Rect2(9, 20, 126, 36)
+
+[resource]
+Button/fonts/font = ExtResource("1_i23sn")
+Button/styles/disabled = SubResource("StyleBoxTexture_3oehb")
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+Label/fonts/font = ExtResource("1_i23sn")
