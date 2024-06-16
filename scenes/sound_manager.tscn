@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/sound_manager.gd" id="1_lbpnu"]
 [ext_resource type="AudioStream" uid="uid://bblseqvcenxqa" path="res://assets/sounds/sfx/point_pickup.wav" id="2_i7s0p"]
-[ext_resource type="AudioStream" uid="uid://c5o0gihhenru3" path="res://assets/sounds/bgm/Stream Loops 2024-05-22.ogg" id="3_tbt4l"]
+[ext_resource type="AudioStream" uid="uid://c5o0gihhenru3" path="res://assets/sounds/bgm/in_game_1.ogg" id="3_tbt4l"]
 [ext_resource type="AudioStream" uid="uid://dm8ghweerqvv7" path="res://assets/sounds/sfx/siren.wav" id="4_pjpv8"]
 
 [node name="SoundManager" type="Node" node_paths=PackedStringArray("pick_player", "bgm_player", "siren_player")]
