@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgdownv8eesq0"]
+[gd_scene load_steps=7 format=3 uid="uid://dgdownv8eesq0"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4d4tr"]
 [ext_resource type="PackedScene" uid="uid://bnx1q24o123vw" path="res://scenes/game_scene.tscn" id="2_pdl6b"]
 [ext_resource type="PackedScene" uid="uid://c8a67e8wi7rqd" path="res://scenes/main_menu.tscn" id="3_c6wv1"]
 [ext_resource type="PackedScene" uid="uid://ch58k0g0dcwdf" path="res://scenes/ui/menu_ui.tscn" id="3_hgmq1"]
 [ext_resource type="PackedScene" uid="uid://b4x2efe56qiwy" path="res://scenes/ui/transition_ui.tscn" id="4_8i5hs"]
+[ext_resource type="PackedScene" uid="uid://ng6n37vqsocg" path="res://scenes/ui/win_menu_ui.tscn" id="6_5ge5a"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_4d4tr")
 game_scene = ExtResource("2_pdl6b")
+menu_scene = ExtResource("3_c6wv1")
+main_menu_scene = ExtResource("3_hgmq1")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_c6wv1")]
 
@@ -16,5 +19,9 @@ game_scene = ExtResource("2_pdl6b")
 
 [node name="Transition" parent="." instance=ExtResource("4_8i5hs")]
 layer = 100
+
+[node name="WinMenu" parent="." instance=ExtResource("6_5ge5a")]
+
+[node name="GameInstances" type="Node" parent="."]
 
 [connection signal="play_transition" from="Menu" to="." method="game_transition"]

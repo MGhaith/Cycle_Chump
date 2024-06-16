@@ -21,3 +21,9 @@ func play_siren():
 
 func _on_siren_player_finished():
 	bgm_player.volume_db = 0.0
+
+func pause_bgm():
+	bgm_player.stop()
+
+func unpause_bgm():
+	bgm_player.play()
