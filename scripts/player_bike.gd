@@ -9,6 +9,7 @@ extends VehicleBody3D
 
 @export_category("Bike Mesh")
 @export var front_wheel_mesh : MeshInstance3D
+@export var body_mesh : MeshInstance3D
 @export var front_wheel : VehicleWheel3D
 @export var rear_wheel : VehicleWheel3D
 
@@ -63,6 +64,10 @@ func _process(_delta):
 func _physics_process(delta):
 	# gets the input axis (positive, negative)
 	var input_dir = Input.get_axis("right", "left")
+	
+	var mesh_rot = 25.0
+	var mesh_target_rotation = input_dir * -mesh_rot
+	body_mesh.rotation_degrees.y = lerp(body_mesh.rotation_degrees.y, mesh_target_rotation, steer_speed * delta)
 	
 	# a function that helps change the speed
 	if Input.is_action_pressed("sprint"):
