@@ -1549,8 +1549,13 @@ transform = Transform3D(-1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 1, 0, 
 [node name="PlayerBike" parent="." node_paths=PackedStringArray("camara_world") groups=["player"] instance=ExtResource("3_4wsir")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -27.0803, 0.835062, 7)
 camara_world = NodePath("../Camera3D")
+steer_angle = null
 bike_normal_speed = 20.0
 bike_max_speed = 30.0
+current_stamina = null
+stamina_gain_per_banana = null
+max_stamina_remover = null
+min_stamina_remover = null
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 17, 0)

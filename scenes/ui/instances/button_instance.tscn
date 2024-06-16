@@ -39,6 +39,10 @@ text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

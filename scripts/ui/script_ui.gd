@@ -2,6 +2,10 @@ extends CanvasLayer
 
 # THIS IS A SCRIPT FOR EVERY UI
 
+func _ready():
+	await get_tree().create_timer(2).timeout
+	close_ui()
+
 func open_ui():
 	var tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUINT)
@@ -13,3 +17,4 @@ func close_ui():
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "offset:y", Vector2(0,-1000), 0.5)
+	tween.play()

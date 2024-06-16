@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://nt05hvj572w8"]
+
+[ext_resource type="Script" path="res://scripts/ui/script_ui.gd" id="1_itlfm"]
+[ext_resource type="Script" path="res://scripts/ui/gameplay_script.gd" id="2_f8a3y"]
+[ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="3_st21u"]
+[ext_resource type="PackedScene" uid="uid://cdh4uow1q38mp" path="res://scenes/ui/instances/button_instance.tscn" id="4_kqr4d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhecy"]
+bg_color = Color(0.615686, 0.309804, 0.121569, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.329412, 0.133333, 0.164706, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="GameOver" type="CanvasLayer"]
+process_mode = 3
+transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 0, 0)
+script = ExtResource("1_itlfm")
+
+[node name="Canvas" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_f8a3y")
+
+[node name="Padding" type="MarginContainer" parent="Canvas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 250
+theme_override_constants/margin_bottom = 100
+
+[node name="Background" type="Panel" parent="Canvas/Padding"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qhecy")
+
+[node name="InsidePadding" type="MarginContainer" parent="Canvas/Padding"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VContainer" type="VBoxContainer" parent="Canvas/Padding/InsidePadding"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Title" type="Label" parent="Canvas/Padding/InsidePadding/VContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_st21u")
+theme_override_font_sizes/font_size = 32
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ContainerStats" type="VBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Score" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/ContainerStats"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_st21u")
+theme_override_font_sizes/font_size = 24
+text = "Score : 000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScore" type="Label" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/ContainerStats"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_st21u")
+theme_override_font_sizes/font_size = 24
+text = "Best Score : 000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VContainer" type="HBoxContainer" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PlayAgain" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer" instance=ExtResource("4_kqr4d")]
+layout_mode = 2
+text = "Play Again"
+
+[node name="MainMenu" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer" instance=ExtResource("4_kqr4d")]
+layout_mode = 2
+text = "Resume"
+
+[connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer/PlayAgain" to="Canvas" method="_on_play_again_button_down"]
+[connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer/MainMenu" to="Canvas" method="_on_main_menu_button_down"]

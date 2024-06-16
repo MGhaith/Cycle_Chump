@@ -9,6 +9,7 @@ extends VehicleBody3D
 
 @export_category("Bike Mesh")
 @export var front_wheel_mesh : MeshInstance3D
+@export var body_mesh : MeshInstance3D
 @export var front_wheel : VehicleWheel3D
 @export var rear_wheel : VehicleWheel3D
 
@@ -21,8 +22,6 @@ extends VehicleBody3D
 #_________
 
 @export_category("Bike Speeds Mesure In Kilometres")
-@export var bike_normal_speed = 15.0
-@export var bike_max_speed = 25.0
 @export var bike_normal_speed = 25.0
 @export var bike_max_speed = 45.0
 
@@ -80,6 +79,7 @@ func _physics_process(delta):
 	
 	var target_rotation = input_dir * steer_angle
 	front_wheel_mesh.rotation_degrees.y = lerp(front_wheel_mesh.rotation_degrees.y, target_rotation, steer_speed * delta)
+	body_mesh.rotation_degrees.y = lerp(body_mesh.rotation_degrees.y tet_rotation)
 
 func _integrate_forces(state):
 	
