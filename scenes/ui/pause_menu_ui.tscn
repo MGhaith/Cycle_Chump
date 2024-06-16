@@ -20,6 +20,7 @@ corner_detail = 3
 anti_aliasing = false
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
 offset = Vector2(2.08165e-12, -1000)
 transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
 script = ExtResource("1_seo3q")

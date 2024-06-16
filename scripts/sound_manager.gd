@@ -4,6 +4,10 @@ extends Node
 @export var bgm_player: AudioStreamPlayer
 @export var siren_player: AudioStreamPlayer
 
+func _ready():
+	await get_tree().create_timer(0.7).timeout
+	bgm_player.play()
+
 func play_point_pick():
 	pick_player.play()
 

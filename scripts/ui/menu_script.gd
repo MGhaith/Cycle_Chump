@@ -1,7 +1,7 @@
-extends Control
+extends CanvasLayer
 
-@export var controls_menu : CanvasLayer
-@export var credits_menu : CanvasLayer
+@onready var controls_menu = $ControlsMenu
+@onready var credits_menu = $CreditsMenu
 
 signal play_transition 
 
@@ -11,3 +11,5 @@ func _on_play_button_down():
 func _on_controls_button_down():
 	controls_menu.open_ui()
 
+func _on_exit_button_down():
+	get_tree().quit()

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4x2efe56qiwy"]
+
+[ext_resource type="Script" path="res://scenes/ui/transition_ui.gd" id="1_xdiee"]
+
+[node name="Transition" type="CanvasLayer"]
+offset = Vector2(2.08165e-12, -1000)
+transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
+script = ExtResource("1_xdiee")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

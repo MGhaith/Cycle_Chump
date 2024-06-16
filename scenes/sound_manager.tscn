@@ -16,7 +16,6 @@ stream = ExtResource("2_i7s0p")
 
 [node name="bgm_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tbt4l")
-autoplay = true
 
 [node name="siren_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_pjpv8")
