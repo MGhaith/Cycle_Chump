@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://nt05hvj572w8"]
+[gd_scene load_steps=7 format=3 uid="uid://nt05hvj572w8"]
 
 [ext_resource type="Script" path="res://scripts/ui/script_ui.gd" id="1_itlfm"]
 [ext_resource type="Script" path="res://scripts/ui/gameplay_script.gd" id="2_f8a3y"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="3_st21u"]
+[ext_resource type="PackedScene" uid="uid://dgdownv8eesq0" path="res://scenes/main.tscn" id="3_wk0pg"]
 [ext_resource type="PackedScene" uid="uid://cdh4uow1q38mp" path="res://scenes/ui/instances/button_instance.tscn" id="4_kqr4d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhecy"]
@@ -33,6 +34,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_f8a3y")
+menu = ExtResource("3_wk0pg")
 
 [node name="Padding" type="MarginContainer" parent="Canvas"]
 layout_mode = 1
@@ -123,7 +125,7 @@ text = "Play Again"
 
 [node name="MainMenu" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer" instance=ExtResource("4_kqr4d")]
 layout_mode = 2
-text = "Resume"
+text = "Main Menu"
 
 [connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer/PlayAgain" to="Canvas" method="_on_play_again_button_down"]
 [connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/VContainer/MainMenu" to="Canvas" method="_on_main_menu_button_down"]

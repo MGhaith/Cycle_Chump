@@ -4,13 +4,13 @@
 [ext_resource type="AudioStream" uid="uid://bblseqvcenxqa" path="res://assets/sounds/sfx/point_pickup.wav" id="2_i7s0p"]
 [ext_resource type="AudioStream" uid="uid://c5o0gihhenru3" path="res://assets/sounds/bgm/Stream Loops 2024-05-22.ogg" id="3_tbt4l"]
 
-[node name="SoundManager" type="Node" node_paths=PackedStringArray("pick_player")]
+[node name="SoundManager" type="Node" node_paths=PackedStringArray("pick_player", "bgm_player")]
 script = ExtResource("1_lbpnu")
 pick_player = NodePath("pick_player")
+bgm_player = NodePath("bgm_player")
 
 [node name="pick_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_i7s0p")
 
 [node name="bgm_player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tbt4l")
-autoplay = true

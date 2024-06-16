@@ -1,6 +1,6 @@
 extends Control
 
-@onready var menu = preload("res://scenes/ui/menu_ui.tscn").instantiate()
+@export var menu : PackedScene
 
 func _on_play_again_button_down():
 	printerr("We Need To Set Up Here")
