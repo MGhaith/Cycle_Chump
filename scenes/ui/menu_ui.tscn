@@ -108,6 +108,7 @@ layout_mode = 2
 text = "Exits"
 
 [node name="ControlsMenu" type="CanvasLayer" parent="."]
+visible = false
 offset = Vector2(2.08165e-12, -1000)
 transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
 script = ExtResource("1_3bvb7")
@@ -391,7 +392,6 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="CreditsMenu" type="CanvasLayer" parent="."]
-visible = false
 offset = Vector2(2.08165e-12, -1000)
 transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
 
@@ -444,6 +444,10 @@ text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Back" parent="CreditsMenu/Canvas/Padding/InsidePadding" instance=ExtResource("5_nlmid")]
+layout_mode = 2
+
 [connection signal="button_down" from="Canvas/Padding/VContainer/VButtonContainer/Play" to="Canvas" method="_on_play_button_down"]
 [connection signal="button_down" from="Canvas/Padding/VContainer/VButtonContainer/Controls" to="Canvas" method="_on_controls_button_down"]
 [connection signal="button_down" from="ControlsMenu/Canvas/Padding/InsidePadding/Back" to="ControlsMenu" method="close_ui"]
+[connection signal="button_down" from="CreditsMenu/Canvas/Padding/InsidePadding/Back" to="ControlsMenu" method="close_ui"]

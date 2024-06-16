@@ -1,32 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgdownv8eesq0"]
+[gd_scene load_steps=7 format=3 uid="uid://dgdownv8eesq0"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4d4tr"]
 [ext_resource type="PackedScene" uid="uid://bnx1q24o123vw" path="res://scenes/prototype_scene.tscn" id="2_xcno3"]
 [ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="3_yyfe4"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="4_o85e4"]
+[ext_resource type="PackedScene" uid="uid://ch58k0g0dcwdf" path="res://scenes/ui/menu_ui.tscn" id="5_1jnge"]
+[ext_resource type="PackedScene" uid="uid://nt05hvj572w8" path="res://scenes/ui/gameover_ui.tscn" id="6_rvvaj"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("points_node", "score_value_ui", "highest_score_ui", "points_left_ui")]
 script = ExtResource("1_4d4tr")
 points_node = NodePath("GameScene/environment/points")
-score_value_ui = NodePath("CanvasLayer/Control/CurrentScore/ScoreValue")
-highest_score_ui = NodePath("CanvasLayer/Control/HighestScore/HScoreValue")
-points_left_ui = NodePath("CanvasLayer/Control/PointsLeft/PointsLeft")
+score_value_ui = NodePath("Gameplay/Control/CurrentScore/ScoreValue")
+highest_score_ui = NodePath("Gameplay/Control/HighestScore/HScoreValue")
+points_left_ui = NodePath("Gameplay/Control/PointsLeft/PointsLeft")
 
 [node name="GameScene" parent="." instance=ExtResource("2_xcno3")]
 
 [node name="PlayerBike" parent="GameScene" index="2"]
 transform = Transform3D(-0.00294967, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00294967, -22.3536, 0.682896, 7.12562)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Gameplay" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="Gameplay"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 60.0
 grow_horizontal = 2
 
-[node name="CurrentScore" type="Panel" parent="CanvasLayer/Control"]
+[node name="CurrentScore" type="Panel" parent="Gameplay/Control"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -40,7 +42,7 @@ offset_bottom = 25.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/CurrentScore"]
+[node name="Label" type="Label" parent="Gameplay/Control/CurrentScore"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -54,7 +56,7 @@ theme_override_fonts/font = ExtResource("3_yyfe4")
 text = "SCORE:"
 vertical_alignment = 1
 
-[node name="ScoreValue" type="Label" parent="CanvasLayer/Control/CurrentScore"]
+[node name="ScoreValue" type="Label" parent="Gameplay/Control/CurrentScore"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -72,7 +74,7 @@ text = "999999999999"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PointsLeft" type="Panel" parent="CanvasLayer/Control"]
+[node name="PointsLeft" type="Panel" parent="Gameplay/Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -83,7 +85,7 @@ offset_right = 90.0
 offset_bottom = 55.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/PointsLeft"]
+[node name="Label" type="Label" parent="Gameplay/Control/PointsLeft"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -98,7 +100,7 @@ text = "Points Left:"
 vertical_alignment = 1
 uppercase = true
 
-[node name="PointsLeft" type="Label" parent="CanvasLayer/Control/PointsLeft"]
+[node name="PointsLeft" type="Label" parent="Gameplay/Control/PointsLeft"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -116,7 +118,7 @@ text = "999"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HighestScore" type="Panel" parent="CanvasLayer/Control"]
+[node name="HighestScore" type="Panel" parent="Gameplay/Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -127,7 +129,7 @@ offset_right = 342.0
 offset_bottom = 25.0
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/HighestScore"]
+[node name="Label" type="Label" parent="Gameplay/Control/HighestScore"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -142,7 +144,7 @@ text = "Highest Score:"
 vertical_alignment = 1
 uppercase = true
 
-[node name="HScoreValue" type="Label" parent="CanvasLayer/Control/HighestScore"]
+[node name="HScoreValue" type="Label" parent="Gameplay/Control/HighestScore"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -160,7 +162,7 @@ text = "999999999999"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="CanvasLayer"]
+[node name="Control2" type="Control" parent="Gameplay"]
 layout_mode = 3
 anchors_preset = 12
 anchor_top = 1.0
@@ -170,7 +172,7 @@ offset_top = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control2"]
+[node name="Label" type="Label" parent="Gameplay/Control2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -182,7 +184,7 @@ grow_horizontal = 2
 text = "Stamina"
 uppercase = true
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control2"]
+[node name="ProgressBar" type="ProgressBar" parent="Gameplay/Control2"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -197,5 +199,11 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_o85e4")
 theme_override_font_sizes/font_size = 12
+
+[node name="Menu" parent="." instance=ExtResource("5_1jnge")]
+
+[node name="GameOver" parent="." instance=ExtResource("6_rvvaj")]
+offset = Vector2(2.08165e-12, -1000)
+transform = Transform2D(1, 2.08165e-12, -2.08165e-12, 1, 2.08165e-12, -1000)
 
 [editable path="GameScene"]
