@@ -13,13 +13,13 @@ var player_highest_score: int = 0
 var points_left: int = 0
 
 func _ready():
-	points_left = len(points_node.get_children()) 
+	#points_left = len(points_node.get_children()) 
+	#
+	#if points_node != null:
+		#for point in points_node.get_children():
+			#point.game_manager = self
 	
-	if points_node != null:
-		for point in points_node.get_children():
-			point.game_manager = self
-	
-	update_hud()
+	#update_hud()
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print_debug("Game Manager Ready")

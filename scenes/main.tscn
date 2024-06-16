@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgdownv8eesq0"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4d4tr"]
-[ext_resource type="PackedScene" uid="uid://bnx1q24o123vw" path="res://scenes/prototype_scene.tscn" id="2_xcno3"]
+[ext_resource type="PackedScene" uid="uid://c8a67e8wi7rqd" path="res://scenes/main_menu.tscn" id="3_c6wv1"]
 [ext_resource type="FontFile" uid="uid://bp5teib1fits0" path="res://assets/fonts/NicoBold-Monospaced.woff2" id="3_yyfe4"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="4_o85e4"]
 
@@ -10,20 +10,15 @@ bg_color = Color(0.381096, 0.684505, 0.367346, 1)
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("points_node", "score_value_ui", "highest_score_ui", "points_left_ui")]
 script = ExtResource("1_4d4tr")
-points_node = NodePath("GameScene/environment/points")
+points_node = NodePath("")
 score_value_ui = NodePath("CanvasLayer/Control/CurrentScore/ScoreValue")
 highest_score_ui = NodePath("CanvasLayer/Control/HighestScore/HScoreValue")
 points_left_ui = NodePath("CanvasLayer/Control/PointsLeft/PointsLeft")
 
-[node name="GameScene" parent="." instance=ExtResource("2_xcno3")]
-
-[node name="CollisionPolygon3D6" parent="GameScene/environment/buildings/collisions" index="5"]
-polygon = PackedVector2Array(0.1, 0, 10, 0, 10, 6, 4, 6, 4, 10, 0, 10)
-
-[node name="PlayerBike" parent="GameScene" index="2"]
-transform = Transform3D(-0.00294967, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00294967, -22.8395, 0.682896, 7.12562)
+[node name="MainMenu" parent="." instance=ExtResource("3_c6wv1")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -206,10 +201,3 @@ theme_override_fonts/font = ExtResource("4_o85e4")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/fill = SubResource("StyleBoxFlat_hfcp5")
 value = 100.0
-
-[connection signal="level_done" from="." to="GameScene/environment/RoadBlocks/RoadBlock" method="enable_win_area"]
-[connection signal="level_done" from="." to="GameScene/environment/RoadBlocks/RoadBlock2" method="enable_win_area"]
-[connection signal="game_won" from="GameScene/environment/RoadBlocks/RoadBlock" to="." method="_on_game_won"]
-[connection signal="game_won" from="GameScene/environment/RoadBlocks/RoadBlock2" to="." method="_on_game_won"]
-
-[editable path="GameScene"]
