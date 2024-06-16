@@ -13,6 +13,7 @@ signal level_done
 @onready var game_instances = $GameInstances
 
 var player_highest_score: int = 0
+var player_score: int = 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -22,9 +23,16 @@ func game_transition():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	transition.transition_in()
 	await get_tree().create_timer(0.8).timeout
-	main_menu.queue_free()
-	menu.queue_free()
-	game_instances.add_child(game_scene_int)
+
+	for scene in self.get_children():
+		if scene != transition:
+			scene.queue_free()
+	
+	player_score = 0
+	
+	add_child(game_scene_int)
+	game_scene_int.game_manager = self
+	
 	transition.transition_out()
 	await get_tree().create_timer(0.8).timeout
 	

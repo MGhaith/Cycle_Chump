@@ -13,12 +13,12 @@ extends Node3D
 @export var player : VehicleBody3D
 
 var points_left: int = 0
-var player_score: int = 0
 var game_manager: GameManager
 var pause_game = false
 
 func _ready():
 	points_left = len(points_node.get_children()) 
+	game_manager = get_tree().current_scene
 	update_hud()
 	await get_tree().create_timer(1).timeout
 	pause_game = true
@@ -31,14 +31,14 @@ func _input(event):
 		get_tree().paused = true
 
 func change_score(value : int):
-	player_score += value
+	game_manager.player_score += value
 	points_left -= 1
 	
 	sound_manager.play_point_pick()
 	
 	if game_manager != null:
-		if player_score > game_manager.player_highest_score:
-			game_manager.player_highest_score = player_score
+		if game_manager.player_score > game_manager.player_highest_score:
+			game_manager.player_highest_score = game_manager.player_score
 	
 	# The level is cleared
 	if points_left == 0:
@@ -48,11 +48,13 @@ func change_score(value : int):
 
 func update_hud():
 	stamina_var.value = player.current_stamina
-	score_value_ui.text = str(player_score)
 	points_left_ui.text = str(points_left)
-	#highest_score_ui.text = str(game_manager.player_highest_score)
+	score_value_ui.text = str(game_manager.player_score)
+	highest_score_ui.text = str(game_manager.player_highest_score)
 	
 func on_player_death() -> void:
+	$GameOver/Canvas.can_replay = true
+	$GameOver/Canvas.set_scores(game_manager.player_score, game_manager.player_highest_score)
 	game_over_menu.open_ui()
 	sound_manager.stop_bgm()
 	player.queue_free()

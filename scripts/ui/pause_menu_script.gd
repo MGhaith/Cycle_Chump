@@ -5,7 +5,7 @@ extends Control
 
 func _on_resume_button_down():
 	self.get_parent().close_ui()
-	await get_tree().create_timer(0.5)
+	await get_tree().create_timer(0.5).timeout
 	get_tree().paused = false
 
 func _on_restart_button_down():
