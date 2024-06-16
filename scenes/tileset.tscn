@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfy3tjsuudtb0"]
+[gd_scene load_steps=16 format=3 uid="uid://cfy3tjsuudtb0"]
 
 [ext_resource type="PackedScene" uid="uid://c2wj4mg33xafm" path="res://addons/kaykit_city_builder_bits/Assets/gltf/base.gltf" id="1_l65lq"]
 [ext_resource type="PackedScene" uid="uid://bwjmof3dgq40x" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_corner.gltf" id="2_thv6m"]
@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://cvvtg3itfcis4" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_straight.gltf" id="5_xtqqb"]
 [ext_resource type="PackedScene" uid="uid://b4ep526e258l3" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_straight_crossing.gltf" id="6_4rqh3"]
 [ext_resource type="PackedScene" uid="uid://dwtxpd126yuup" path="res://addons/kaykit_city_builder_bits/Assets/gltf/road_tsplit.gltf" id="7_lyil1"]
+[ext_resource type="PackedScene" uid="uid://cvnns0q0dusjk" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_A.gltf" id="8_eo7t7"]
+[ext_resource type="PackedScene" uid="uid://c11v0qvnlwqwi" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_B.gltf" id="9_cgv67"]
+[ext_resource type="PackedScene" uid="uid://b35xly8rg2l6v" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_C.gltf" id="10_qsmd8"]
+[ext_resource type="PackedScene" uid="uid://tn7yee8clnq2" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_D.gltf" id="11_qscxt"]
+[ext_resource type="PackedScene" uid="uid://c4voq8kmkgkpd" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_E.gltf" id="12_dncgk"]
+[ext_resource type="PackedScene" uid="uid://ccybefexgahwy" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_F.gltf" id="13_r2jqi"]
+[ext_resource type="PackedScene" uid="uid://csgr0pt7hjinc" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_G.gltf" id="14_rbx4x"]
+[ext_resource type="PackedScene" uid="uid://cjtu2nlqc4x6i" path="res://addons/kaykit_city_builder_bits/Assets/gltf/building_H.gltf" id="15_yi6sm"]
 
 [node name="tileset" type="Node3D"]
 
@@ -23,3 +31,19 @@
 [node name="road_straight_crossing2" parent="." instance=ExtResource("6_4rqh3")]
 
 [node name="road_tsplit2" parent="." instance=ExtResource("7_lyil1")]
+
+[node name="building_A2" parent="." instance=ExtResource("8_eo7t7")]
+
+[node name="building_B2" parent="." instance=ExtResource("9_cgv67")]
+
+[node name="building_C2" parent="." instance=ExtResource("10_qsmd8")]
+
+[node name="building_D2" parent="." instance=ExtResource("11_qscxt")]
+
+[node name="building_E2" parent="." instance=ExtResource("12_dncgk")]
+
+[node name="building_F2" parent="." instance=ExtResource("13_r2jqi")]
+
+[node name="building_G2" parent="." instance=ExtResource("14_rbx4x")]
+
+[node name="building_H2" parent="." instance=ExtResource("15_yi6sm")]
