@@ -1,26 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://km2dygplu1hh"]
+[gd_scene load_steps=6 format=3 uid="uid://km2dygplu1hh"]
 
+[ext_resource type="Script" path="res://scripts/road_block_script.gd" id="1_177ae"]
 [ext_resource type="PackedScene" uid="uid://ccwo1v6lumii8" path="res://addons/kaykit_city_builder_bits/Assets/gltf/car_police.gltf" id="1_m7ayv"]
 [ext_resource type="PackedScene" uid="uid://bcmgkxcmh0ddh" path="res://assets/3d/cone/cone.glb" id="2_m4tht"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iytph"]
+size = Vector3(2, 2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uqgis"]
 size = Vector3(2, 1, 4)
 
-[node name="RoadBlock" type="Node3D"]
+[node name="RoadBlock" type="Node3D" node_paths=PackedStringArray("win_area", "meshs")]
+script = ExtResource("1_177ae")
+win_area = NodePath("WinArea")
+meshs = NodePath("car_police2")
 
 [node name="car_police2" parent="." instance=ExtResource("1_m7ayv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1, 0.15, 0)
 
-[node name="cone2" parent="." instance=ExtResource("2_m4tht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+[node name="cone2" parent="car_police2" instance=ExtResource("2_m4tht")]
+transform = Transform3D(0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0.333333, -0.05, 0.333333)
 
-[node name="cone3" parent="." instance=ExtResource("2_m4tht")]
+[node name="cone3" parent="car_police2" instance=ExtResource("2_m4tht")]
+transform = Transform3D(0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0.333333, -0.05, 0)
 
-[node name="cone4" parent="." instance=ExtResource("2_m4tht")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+[node name="cone4" parent="car_police2" instance=ExtResource("2_m4tht")]
+transform = Transform3D(0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0.333333, -0.05, -0.333333)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.5, 0)
 shape = SubResource("BoxShape3D_iytph")
+
+[node name="WinArea" type="Area3D" parent="."]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.5, 0)
+shape = SubResource("BoxShape3D_uqgis")
+
+[connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]

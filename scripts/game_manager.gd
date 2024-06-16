@@ -1,6 +1,8 @@
 extends Node
 class_name GameManager
 
+signal level_done
+
 @export var points_node: Node
 @export var score_value_ui: Label
 @export var highest_score_ui: Label
@@ -35,6 +37,10 @@ func change_score(value : int):
 	if player_score > player_highest_score:
 		player_highest_score = player_score
 	
+	# The level is cleared
+	if points_left == 0:
+		emit_signal("level_done")
+	
 	update_hud()
 
 func update_hud():
@@ -43,3 +49,7 @@ func update_hud():
 	points_left_ui.text = str(points_left)
 	highest_score_ui.text = str(player_highest_score)
 	
+
+
+func _on_game_won():
+	pass # Replace with function body.
