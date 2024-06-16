@@ -79,7 +79,7 @@ func _physics_process(delta):
 		bike_current_speed = bike_normal_speed
 	
 	
-	engine_force = lerp(engine_force, bike_current_speed, delta )
+	engine_force = bike_current_speed
 	AnimationController.speed_scale = engine_force / bike_current_speed + delta
 
 	steering = lerp_angle(steering, input_dir * deg_to_rad(steer_angle), steer_speed * delta)
@@ -115,7 +115,7 @@ func _integrate_forces(state):
 			angular_velocity.x = 0
 			angular_velocity.z = 0
 
-func _banana_area_entered(area_rid, area, area_shape_index, local_shape_index):
+func _banana_area_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area.is_in_group("banana"):
 		print("Gain stamina")
 		var banana_children = area.get_children()
@@ -131,7 +131,7 @@ func _banana_area_entered(area_rid, area, area_shape_index, local_shape_index):
 		if preview_stamina > 100:
 			current_stamina = 100
 		else:
-			current_stamina + stamina_gain_per_banana
+			current_stamina += stamina_gain_per_banana
 
 		await get_tree().create_timer(1).timeout
 		area.queue_free()

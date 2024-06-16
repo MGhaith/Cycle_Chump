@@ -26,10 +26,11 @@ func game_transition():
 	await get_tree().create_timer(0.8).timeout
 	
 
-func _process(_delta):
-	if Input.is_action_just_pressed("escape"):
-		get_tree().quit()
+#func _process(_delta):
+	#
 
+func quit_game():
+	get_tree().quit()
 
 func _on_game_won():
 	pass # Replace with function body.

@@ -16,6 +16,7 @@ var game_manager: GameManager
 
 func _ready():
 	points_left = len(points_node.get_children()) 
+	update_hud()
 
 func change_score(value : int):
 	player_score += value
@@ -43,3 +44,6 @@ func update_hud():
 	score_value_ui.text = str(player_score)
 	points_left_ui.text = str(points_left)
 	#highest_score_ui.text = str(game_manager.player_highest_score)
+	
+func on_player_death() -> void:
+	pass

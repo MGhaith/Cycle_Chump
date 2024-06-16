@@ -4,5 +4,5 @@ extends Camera3D
 
 var player_on_screen = true
 
-func _process(delta):
+func _process(_delta):
 	self.position = Vector3(position.x, position.y, player.position.z)
