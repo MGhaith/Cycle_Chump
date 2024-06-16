@@ -14,11 +14,21 @@ extends Node3D
 
 var points_left: int = 0
 var game_manager: GameManager
+var pause_game = false
 
 func _ready():
 	points_left = len(points_node.get_children()) 
 	game_manager = get_tree().current_scene
 	update_hud()
+	await get_tree().create_timer(1).timeout
+	pause_game = true
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pause_menu.open_ui()
+		sound_manager.pause_bgm()
+		get_tree().paused = true
 
 func change_score(value : int):
 	game_manager.player_score += value
@@ -35,11 +45,6 @@ func change_score(value : int):
 		emit_signal("level_done")
 	
 	update_hud()
-
-func _input(event):
-	if event.is_action_pressed("pause"):
-		pause_menu.open_ui()
-		get_tree().paused = true
 
 func update_hud():
 	stamina_var.value = player.current_stamina

@@ -17,4 +17,5 @@ func transition_out():
 	tween.tween_property(self, "offset:y", 1000, 0.8)
 	tween.play()
 	await get_tree().create_timer(0.8).timeout
+	self.offset.y = -1000
 	self.visible = false
