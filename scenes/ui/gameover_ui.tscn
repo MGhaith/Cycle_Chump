@@ -16,6 +16,7 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+anti_aliasing = false
 
 [node name="GameOver" type="CanvasLayer"]
 process_mode = 3

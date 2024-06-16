@@ -16,11 +16,6 @@ points_left_ui = NodePath("CanvasLayer/Control/PointsLeft/PointsLeft")
 
 [node name="PlayerBike" parent="GameScene" index="2"]
 transform = Transform3D(-0.00294967, 0, 0.999995, 0, 1, 0, -0.999995, 0, -0.00294967, -22.3536, 0.682896, 7.12562)
-steer_angle = null
-current_stamina = null
-stamina_gain_per_banana = null
-max_stamina_remover = null
-min_stamina_remover = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

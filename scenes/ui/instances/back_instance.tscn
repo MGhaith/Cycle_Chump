@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://1vbtvnp1poaj"]
+
+[ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="1_2mra6"]
+[ext_resource type="Script" path="res://scripts/ui/instances/back.gd" id="2_rn662"]
+[ext_resource type="AudioStream" uid="uid://dlhl7lbyl7yh8" path="res://assets/sounds/click_sound.ogg" id="3_vt4qn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ei076"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsgup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t78md"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nxma"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7e5b3"]
+
+[node name="Back" type="Button"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 32)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.945098, 0.945098, 0.945098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_2mra6")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ei076")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nsgup")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t78md")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6nxma")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7e5b3")
+text = "^"
+flat = true
+script = ExtResource("2_rn662")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vt4qn")
+volume_db = -0.5
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

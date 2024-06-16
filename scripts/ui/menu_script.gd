@@ -1,11 +1,13 @@
 extends Control
 
+@export var controls_menu : CanvasLayer
+@export var credits_menu : CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+signal play_transition 
 
+func _on_play_button_down():
+	emit_signal("play_transition")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_controls_button_down():
+	controls_menu.open_ui()
+

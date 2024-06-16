@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch58k0g0dcwdf"]
+[gd_scene load_steps=8 format=3 uid="uid://ch58k0g0dcwdf"]
 
 [ext_resource type="Script" path="res://scripts/ui/script_ui.gd" id="1_3bvb7"]
 [ext_resource type="Script" path="res://scripts/ui/menu_script.gd" id="2_7b6vm"]
 [ext_resource type="FontFile" uid="uid://42tieon0c7k8" path="res://assets/fonts/NicoBold-Regular.woff2" id="3_jtsvb"]
 [ext_resource type="PackedScene" uid="uid://cdh4uow1q38mp" path="res://scenes/ui/instances/button_instance.tscn" id="4_irld1"]
+[ext_resource type="PackedScene" uid="uid://1vbtvnp1poaj" path="res://scenes/ui/instances/back_instance.tscn" id="5_nlmid"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki21o"]
 bg_color = Color(0.615686, 0.309804, 0.121569, 1)
@@ -16,11 +17,32 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+corner_detail = 3
+shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+shadow_size = 2
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eghc7"]
+bg_color = Color(0.615686, 0.309804, 0.121569, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.329412, 0.133333, 0.164706, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 3
+shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+shadow_size = 2
+anti_aliasing = false
+anti_aliasing_size = 0.01
 
 [node name="Menu" type="CanvasLayer"]
-script = ExtResource("1_3bvb7")
 
-[node name="Canvas" type="Control" parent="."]
+[node name="Canvas" type="Control" parent="." node_paths=PackedStringArray("controls_menu", "credits_menu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +51,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_7b6vm")
+controls_menu = NodePath("../ControlsMenu")
+credits_menu = NodePath("../CreditsMenu")
 
 [node name="Padding" type="MarginContainer" parent="Canvas"]
 layout_mode = 1
@@ -86,6 +110,7 @@ text = "Exits"
 [node name="ControlsMenu" type="CanvasLayer" parent="."]
 offset = Vector2(2.08165e-12, -1000)
 transform = Transform2D(1, 0, 0, 1, 2.08165e-12, -1000)
+script = ExtResource("1_3bvb7")
 
 [node name="Canvas" type="Control" parent="ControlsMenu"]
 layout_mode = 3
@@ -116,7 +141,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_bottom = 50
 
 [node name="VContainer" type="VBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding"]
 layout_mode = 2
@@ -136,6 +161,234 @@ text = "Controls
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Controls" type="VBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="MainControls" type="VBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SubTitle" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 24
+text = "Main Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="HBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TextCotrol" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Left : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBackground" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control"]
+custom_minimum_size = Vector2(48, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control/ControlBackground"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextCotrol2" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Right : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBackground2" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control"]
+custom_minimum_size = Vector2(48, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/MainControls/Control/ControlBackground2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionControls" type="VBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SubTitle2" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 24
+text = "Action Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="HBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TextCotrol" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control2"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Pedal Faster"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBackground" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control2"]
+custom_minimum_size = Vector2(80, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control2/ControlBackground"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="HBoxContainer" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="TextCotrol" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control3"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "Ring!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlBackground" type="Panel" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control3"]
+custom_minimum_size = Vector2(48, 34)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_eghc7")
+
+[node name="Text" type="Label" parent="ControlsMenu/Canvas/Padding/InsidePadding/VContainer/Controls/ActionControls/Control3/ControlBackground"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.5
+offset_bottom = 1.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.329412, 0.133333, 0.168627, 0.392157)
+theme_override_colors/font_outline_color = Color(0.329412, 0.133333, 0.164706, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/font = ExtResource("3_jtsvb")
+theme_override_font_sizes/font_size = 16
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" parent="ControlsMenu/Canvas/Padding/InsidePadding" instance=ExtResource("5_nlmid")]
+layout_mode = 2
 
 [node name="CreditsMenu" type="CanvasLayer" parent="."]
 visible = false
@@ -190,3 +443,7 @@ theme_override_font_sizes/font_size = 32
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="button_down" from="Canvas/Padding/VContainer/VButtonContainer/Play" to="Canvas" method="_on_play_button_down"]
+[connection signal="button_down" from="Canvas/Padding/VContainer/VButtonContainer/Controls" to="Canvas" method="_on_controls_button_down"]
+[connection signal="button_down" from="ControlsMenu/Canvas/Padding/InsidePadding/Back" to="ControlsMenu" method="close_ui"]
