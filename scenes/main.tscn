@@ -8,9 +8,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfcp5"]
 bg_color = Color(0.381096, 0.684505, 0.367346, 1)
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("points_node", "score_value_ui", "highest_score_ui", "points_left_ui")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui")]
 script = ExtResource("1_4d4tr")
-points_node = NodePath("")
 score_value_ui = NodePath("CanvasLayer/Control/CurrentScore/ScoreValue")
 highest_score_ui = NodePath("CanvasLayer/Control/HighestScore/HScoreValue")
 points_left_ui = NodePath("CanvasLayer/Control/PointsLeft/PointsLeft")
