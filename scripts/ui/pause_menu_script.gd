@@ -17,7 +17,7 @@ func _on_resume_button_down():
 	get_tree().paused = false
 
 func _on_restart_button_down():
-	game_manager._on_game_won()
+	game_manager.game_transition()
 	get_tree().paused = false
 
 func _on_main_menu_button_down():

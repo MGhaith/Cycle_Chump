@@ -85,9 +85,14 @@ theme_override_constants/separation = -8
 layout_mode = 2
 text = "Resume"
 
+[node name="Restart" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer" instance=ExtResource("3_3hhb8")]
+layout_mode = 2
+text = "Restart"
+
 [node name="MainMenu" parent="Canvas/Padding/InsidePadding/VContainer/VBoxContainer" instance=ExtResource("3_3hhb8")]
 layout_mode = 2
 text = "Main Menu"
 
 [connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/Resume" to="Canvas" method="_on_resume_button_down"]
+[connection signal="pressed" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/Restart" to="Canvas" method="_on_restart_button_down"]
 [connection signal="button_down" from="Canvas/Padding/InsidePadding/VContainer/VBoxContainer/MainMenu" to="Canvas" method="_on_main_menu_button_down"]

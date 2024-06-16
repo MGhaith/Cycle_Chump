@@ -18,6 +18,7 @@ signal enable_exits
 var points_left: int = 0
 var game_manager: GameManager
 var pause_game = false
+var is_game_over: bool = false
 
 func _ready():
 	points_left = len(points_node.get_children()) 
@@ -27,7 +28,7 @@ func _ready():
 	pause_game = true
 
 func _input(event):
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape") and !is_game_over:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pause_menu.open_ui()
 		get_tree().paused = true
@@ -60,6 +61,7 @@ func update_stamina_label(text):
 	$GameHUD/Control2/Label.text = "Stamina" + text
 
 func on_player_death() -> void:
+	is_game_over = true
 	$GameOver/Canvas.can_replay = true
 	$GameOver/Canvas.set_scores(game_manager.player_score, game_manager.player_highest_score)
 	game_over_menu.open_ui()
