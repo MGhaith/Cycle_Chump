@@ -59,6 +59,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 58.0
+offset_right = -479.0
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -87,11 +91,11 @@ text = "Unnamed Game
 About Cycling :V"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="VButtonContainer" type="VBoxContainer" parent="Canvas/Padding/VContainer"]
 custom_minimum_size = Vector2(450, 2.08165e-12)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = -8
@@ -106,12 +110,21 @@ layout_mode = 2
 text = "Controls"
 
 [node name="Credits" parent="Canvas/Padding/VContainer/VButtonContainer" instance=ExtResource("4_irld1")]
+visible = false
 layout_mode = 2
 text = "Credits"
 
 [node name="Exit" parent="Canvas/Padding/VContainer/VButtonContainer" instance=ExtResource("4_irld1")]
 layout_mode = 2
-text = "Exits"
+text = "Exit"
+
+[node name="Panel" type="Panel" parent="Canvas"]
+modulate = Color(1, 1, 1, 0.364706)
+layout_mode = 0
+offset_left = 700.0
+offset_top = 60.0
+offset_right = 1066.0
+offset_bottom = 587.0
 
 [node name="ControlsMenu" type="CanvasLayer" parent="."]
 visible = false

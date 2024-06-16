@@ -10,7 +10,9 @@
 
 [node name="Button" type="TextureButton"]
 texture_filter = 1
-custom_minimum_size = Vector2(2.08165e-12, 64)
+custom_minimum_size = Vector2(288, 80)
+offset_right = 288.0
+offset_bottom = 80.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
@@ -19,7 +21,7 @@ texture_pressed = ExtResource("2_ed0ck")
 texture_hover = ExtResource("3_y50ys")
 texture_disabled = ExtResource("3_y50ys")
 texture_focused = ExtResource("2_ed0ck")
-stretch_mode = 5
+stretch_mode = 0
 script = ExtResource("4_h28hr")
 
 [node name="Text" type="Label" parent="."]
@@ -40,6 +42,7 @@ theme_override_font_sizes/font_size = 16
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
+uppercase = true
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_uqfvf")

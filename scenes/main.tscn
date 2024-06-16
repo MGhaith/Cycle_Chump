@@ -10,3 +10,7 @@ script = ExtResource("1_4d4tr")
 [node name="MainMenu" parent="." instance=ExtResource("3_c6wv1")]
 
 [node name="Menu" parent="." instance=ExtResource("3_hgmq1")]
+
+[connection signal="pressed" from="Menu/Canvas/Padding/VContainer/VButtonContainer/Exit" to="." method="quit_game"]
+
+[editable path="Menu"]
