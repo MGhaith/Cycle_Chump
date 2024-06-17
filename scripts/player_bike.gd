@@ -24,8 +24,8 @@ extends VehicleBody3D
 #_________
 
 @export_category("Bike Speeds Mesure In Kilometres")
-@export var bike_normal_speed = 25.0
-@export var bike_max_speed = 65.0
+@export var bike_normal_speed = 15.0
+@export var bike_max_speed = 30.0
 
 #_________$StaminaTimer
 
@@ -74,6 +74,7 @@ func _process(_delta):
 		stamina_timer.start()
 	
 	if Input.is_action_just_released("space"):
+		global_position = global_position
 		AnimationController.play()
 		stamina_timer.stop()
 		can_move = true
@@ -158,7 +159,6 @@ func _integrate_forces(state):
 
 func _banana_area_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area.is_in_group("banana"):
-		var banana_children = area.get_children()
 		
 		var preview_stamina = current_stamina + stamina_gain_per_banana
 	

@@ -3,7 +3,7 @@ extends Node3D
 @export var game_scene: Node3D
 @export var impact_player: AudioStreamPlayer
 
-var car_speed: float = .025
+var car_speed: float = .01
 
 func _physics_process(_delta):
 	global_position += transform.basis.z * car_speed 

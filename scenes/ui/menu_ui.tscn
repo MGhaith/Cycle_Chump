@@ -96,8 +96,8 @@ theme_override_constants/outline_size = 16
 theme_override_constants/shadow_outline_size = 8
 theme_override_fonts/font = ExtResource("3_jtsvb")
 theme_override_font_sizes/font_size = 48
-text = "A Game About 
-Cycling :V"
+text = "Cycle Chomp
+ :V"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
