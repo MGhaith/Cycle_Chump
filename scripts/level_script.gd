@@ -47,7 +47,7 @@ func change_score(value : int):
 			game_manager.player_highest_score = game_manager.player_score
 	
 	# The level is cleared
-	if points_left == 317:
+	if points_left == 0:
 		emit_signal("enable_exits")
 	
 	update_hud()
