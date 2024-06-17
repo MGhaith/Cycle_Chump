@@ -7,7 +7,7 @@ extends Control
 @onready var game_manager = get_tree().current_scene
 
 func _input(event):
-	if get_tree().paused:
+	if get_tree().paused and !self.get_parent().is_tweening:
 		if event.is_action_pressed("escape"):
 			_on_resume_button_down()
 

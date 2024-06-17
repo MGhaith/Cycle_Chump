@@ -72,7 +72,7 @@ corner_radius_bottom_left = 4
 corner_detail = 3
 anti_aliasing = false
 
-[node name="GameScene" type="Node3D" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui", "points_node", "sound_manager", "stamina_var", "pause_menu", "game_over_menu", "player")]
+[node name="GameScene" type="Node3D" node_paths=PackedStringArray("score_value_ui", "highest_score_ui", "points_left_ui", "points_node", "sound_manager", "stamina_var", "pause_menu", "game_over_menu", "player", "exit1", "exit2")]
 script = ExtResource("1_27e5q")
 score_value_ui = NodePath("GameHUD/Control/CurrentScore/ScoreValue")
 highest_score_ui = NodePath("GameHUD/Control/HighestScore/HScoreValue")
@@ -83,6 +83,8 @@ stamina_var = NodePath("GameHUD/Control2/ProgressBar")
 pause_menu = NodePath("PauseMenu")
 game_over_menu = NodePath("GameOver")
 player = NodePath("PlayerBike")
+exit1 = NodePath("environment/RoadBlocks/RoadBlock")
+exit2 = NodePath("environment/RoadBlocks/RoadBlock2")
 
 [node name="environment" type="Node3D" parent="."]
 

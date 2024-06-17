@@ -14,7 +14,10 @@ signal enable_exits
 
 @export_category("Game Nodes")
 @export var player : VehicleBody3D
+@export var exit1 : Node
+@export var exit2 : Node
 
+var ramdon_finish = 0
 var points_left: int = 0
 var game_manager: GameManager
 var pause_game = false
@@ -44,7 +47,7 @@ func change_score(value : int):
 			game_manager.player_highest_score = game_manager.player_score
 	
 	# The level is cleared
-	if points_left == 0:
+	if points_left == 317:
 		emit_signal("enable_exits")
 	
 	update_hud()
@@ -69,4 +72,6 @@ func on_player_death() -> void:
 	player.queue_free()
 
 func _on_game_won():
+	
+	
 	game_manager._on_game_won()
