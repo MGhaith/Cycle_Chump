@@ -101,53 +101,21 @@ func _physics_process(delta):
 		
 		if bike_break: return
 		engine_force = bike_current_speed
-		print(current_dir, ' ' ,rotation_degrees.y)
 		
 		
 		
-		if current_dir == "up":
-			if Input.is_action_pressed("up"):
-				rotation_degrees.y = 180
-			
-			elif Input.is_action_pressed("left"):
-				rotation_degrees.y = -90
-				current_dir = "left"
-			elif Input.is_action_pressed("ui_right"):
-				rotation_degrees.y = 90
-				current_dir = "right"
-		
-		elif current_dir == "down":
-			if Input.is_action_pressed("down"):
-				rotation_degrees.y = 0
-			
-			elif Input.is_action_pressed("left"):
-				rotation_degrees.y = -90
-				current_dir = "left"
-			elif Input.is_action_pressed("right"):
-				rotation_degrees.y = 90
-				current_dir = "right"
-		
-		elif current_dir == "left":
-			if Input.is_action_pressed("left"):
-				rotation_degrees.y = -90
-			
-			elif Input.is_action_pressed("up"):
-				rotation_degrees.y = 180
-				current_dir = "up"
-			elif Input.is_action_pressed("down"):
-				rotation_degrees.y = 0
-				current_dir = "down"
-		
-		elif current_dir == "right":
-			if Input.is_action_pressed("right"):
-				rotation_degrees.y = 90
-			
-			elif Input.is_action_pressed("up"):
-				rotation_degrees.y = 180
-				current_dir = "up"
-			elif Input.is_action_pressed("down"):
-				rotation_degrees.y = 0
-				current_dir = "down"
+		if Input.is_action_pressed("left"):
+			rotation_degrees.y = -90
+			current_dir = "left"
+		elif Input.is_action_pressed("right"):
+			rotation_degrees.y = 90
+			current_dir = "right"
+		elif Input.is_action_pressed("up"):
+			rotation_degrees.y = 180
+			current_dir = "up"
+		elif Input.is_action_pressed("down"):
+			rotation_degrees.y = 0
+			current_dir = "down"
 		
 		# Adjust speed based on input
 		if Input.is_action_pressed("sprint"):
