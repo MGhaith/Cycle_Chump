@@ -1,14 +1,13 @@
 extends VehicleBody3D
 
 @onready var AnimationController = $BicycleMesh/AnimationPlayer
-@onready var stamina_timer = $StaminaTimer
-@onready var stamina_gain_timer = $StaminaGainTimer
 @onready var visible_on_screen_enabler_3d = $VisibleOnScreenEnabler3D
 @onready var ring_sound = $RingSound
 
 
 @export_category("Bike Properties")
 @export var game_scene: Node3D
+@export var stamina_timer : Timer
 
 @export_category("Bike Mesh")
 @export var front_wheel_mesh : MeshInstance3D
@@ -36,10 +35,10 @@ extends VehicleBody3D
 @export var stamina_gain_per_break = 1
 
 ## This max stamina remover helps when the player is using the bike full speed
-@export var max_stamina_remover = 2.0
+@export var max_stamina_remover = 1
 
 ## This min stamina remover helps when the player is using the bike at normal speed
-@export var min_stamina_remover = 1.0
+@export var min_stamina_remover = .5
 
 var bike_current_speed = bike_normal_speed
 
@@ -60,20 +59,21 @@ func _stamina_timer():
 		else:
 			current_stamina -= min_stamina_remover
 	else:
-		current_stamina += 5
+		current_stamina += .5
 		game_scene.update_stamina_label(" (Resting)")
 	
 	if game_scene != null:
 		game_scene.update_stamina(current_stamina)
 
 func _process(_delta):
-	if Input.is_action_pressed("space"):
+	if Input.is_action_just_pressed("space"):
 		AnimationController.stop()
 		stamina_timer.stop()
 		can_move = false
-		stamina_timer.wait_time = 0.2
+		stamina_timer.wait_time = 1
 		stamina_timer.start()
-	else:
+	
+	if Input.is_action_just_released("space"):
 		AnimationController.play()
 		stamina_timer.stop()
 		can_move = true
@@ -85,7 +85,7 @@ func _process(_delta):
 		current_stamina = 0.1
 		stamina_timer.stop()
 		can_move = false
-		stamina_timer.wait_time = 0.2
+		stamina_timer.wait_time = 1
 		stamina_timer.start()
 	elif current_stamina >= 100.0:
 		AnimationController.play()

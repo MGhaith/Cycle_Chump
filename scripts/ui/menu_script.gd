@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var controls_menu = $ControlsMenu
-@onready var credits_menu = $CreditsMenu
 
 signal play_transition 
 
