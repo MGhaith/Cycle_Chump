@@ -124,7 +124,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("BananaMesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -142,9 +142,9 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(-2, -2),
 "update": 0,
-"values": [Vector3(1, 1, 1), Vector3(0.8, 0.8, 0.8)]
+"values": [Vector3(1, 1, 1), Vector3(3, 3, 3)]
 }
 
 [sub_resource type="Animation" id="Animation_hjg5g"]

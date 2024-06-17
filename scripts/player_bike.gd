@@ -158,20 +158,17 @@ func _integrate_forces(state):
 
 func _banana_area_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	if area.is_in_group("banana"):
-		print("Gain stamina")
 		var banana_children = area.get_children()
-		# Play the animations "picked" from the banana before queue_freeing
-		for child in banana_children:
-			if child is AnimationPlayer:
-				var banana_animations : AnimationPlayer = child
-				banana_animations.play("picked")
+		
 		var preview_stamina = current_stamina + stamina_gain_per_banana
 	
 		if preview_stamina > 100:
 			current_stamina = 100
 		else:
 			current_stamina += stamina_gain_per_banana
-		await get_tree().create_timer(1).timeout
+		
+		$banana_crunch.play()
+		
 		area.queue_free()
 
 func _input(event):
